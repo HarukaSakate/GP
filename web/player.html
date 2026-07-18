@@ -1,0 +1,1069 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>DASH TCP-Aware ABR QoE Test</title>
+  <script src="/web/dash.all.min.js"></script>
+  <style>
+    :root {
+      --bg: #f5f4ef;
+      --panel: #fffdf7;
+      --ink: #1f2328;
+      --muted: #666;
+      --accent: #8f2d16;
+      --line: #d8d1c3;
+      --ok: #1f6f50;
+      --warn: #a15c00;
+    }
+
+    body {
+      margin: 24px;
+      font-family: "Helvetica Neue", "Yu Gothic", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, #fff7d6 0, transparent 28%),
+        linear-gradient(180deg, #f7f2e8 0%, var(--bg) 100%);
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      font-size: 28px;
+      letter-spacing: 0.02em;
+    }
+
+    .panel {
+      max-width: 1120px;
+      padding: 18px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 30px rgba(31, 35, 40, 0.07);
+    }
+
+    .controls {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px 16px;
+      margin-bottom: 16px;
+    }
+
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 14px;
+    }
+
+    input,
+    select,
+    button {
+      font: inherit;
+    }
+
+    input,
+    select {
+      padding: 9px 10px;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    button {
+      padding: 10px 14px;
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: #fff;
+      cursor: pointer;
+    }
+
+    button.secondary {
+      background: transparent;
+      color: var(--ink);
+    }
+
+    .status {
+      margin: 0 0 12px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .status strong {
+      color: var(--accent);
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .metric {
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.85);
+    }
+
+    .metric .k {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .metric .v {
+      display: block;
+      margin-top: 4px;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    video {
+      width: 960px;
+      max-width: 100%;
+      border: 1px solid var(--line);
+      background: #000;
+      margin-bottom: 16px;
+    }
+
+    pre {
+      margin: 0;
+      padding: 12px;
+      height: 320px;
+      overflow: auto;
+      border: 1px solid var(--line);
+      background: #faf8f1;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .tcp-ok {
+      color: var(--ok);
+    }
+
+    .tcp-warn {
+      color: var(--warn);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="panel">
+    <h1>DASH TCP-Aware ABR QoE Test</h1>
+
+    <div class="controls">
+      <label>
+        MPD URL
+        <input id="mpdUrl" type="text" value="">
+      </label>
+
+      <label>
+        Baseline ABR
+        <select id="abr">
+          <option value="abrThroughput">Throughput</option>
+          <option value="abrBola">BOLA</option>
+        </select>
+      </label>
+
+      <label>
+        TCP Signal WebSocket URL
+        <input id="tcpWsUrl" type="text" value="">
+      </label>
+
+      <label>
+        Session ID
+        <input id="sessionId" type="text" value="">
+      </label>
+
+      <label>
+        TCP-Aware Mode
+        <select id="tcpAwareMode">
+          <option value="guardrail">Guardrail Downshift</option>
+          <option value="off">Off</option>
+        </select>
+      </label>
+
+      <label>
+        TCP Signal Max Age (ms)
+        <input id="tcpMaxAgeMs" type="number" min="100" step="100" value="1500">
+      </label>
+    </div>
+
+    <div class="actions">
+      <button id="startBtn">Start</button>
+      <button id="downloadBtn" class="secondary">Download Log</button>
+    </div>
+
+    <p class="status" id="status">Idle</p>
+
+    <div class="metrics">
+      <div class="metric">
+        <span class="k">Current Quality</span>
+        <span class="v" id="qualityValue">-</span>
+      </div>
+      <div class="metric">
+        <span class="k">Current Bitrate</span>
+        <span class="v" id="bitrateValue">-</span>
+      </div>
+      <div class="metric">
+        <span class="k">Buffer Level</span>
+        <span class="v" id="bufferValue">-</span>
+      </div>
+      <div class="metric">
+        <span class="k">TCP Signal</span>
+        <span class="v" id="tcpSignalValue">No Signal</span>
+      </div>
+      <div class="metric">
+        <span class="k">Guardrail</span>
+        <span class="v" id="guardrailValue">Inactive</span>
+      </div>
+    </div>
+
+    <video id="video" controls></video>
+    <pre id="log"></pre>
+  </div>
+
+  <script>
+    const logView = document.getElementById("log");
+    const statusView = document.getElementById("status");
+    const video = document.getElementById("video");
+    const mpdUrlInput = document.getElementById("mpdUrl");
+    const abrSelect = document.getElementById("abr");
+    const tcpWsUrlInput = document.getElementById("tcpWsUrl");
+    const sessionIdInput = document.getElementById("sessionId");
+    const tcpAwareModeSelect = document.getElementById("tcpAwareMode");
+    const tcpMaxAgeMsInput = document.getElementById("tcpMaxAgeMs");
+    const qualityValue = document.getElementById("qualityValue");
+    const bitrateValue = document.getElementById("bitrateValue");
+    const bufferValue = document.getElementById("bufferValue");
+    const tcpSignalValue = document.getElementById("tcpSignalValue");
+    const guardrailValue = document.getElementById("guardrailValue");
+
+    const logs = [];
+
+    let player = null;
+    let heartbeatTimer = null;
+    let tcpSocket = null;
+
+    let startWall = null;
+    let firstPlayingTs = null;
+    let stallStart = null;
+    let totalStallMs = 0;
+    let stallCount = 0;
+    let switchCount = 0;
+
+    let lastVideoQuality = null;
+    let lastVideoBitrateInfo = createEmptyBitrateInfo();
+    let lastGuardrailActionTs = 0;
+    let latestTcpMetrics = null;
+    let latestTcpReceivedAt = 0;
+    let lastVideoFragmentStartedAt = 0;
+    let lastSchedulerRecoveryAt = 0;
+    let sessionId = "";
+
+    function createEmptyBitrateInfo() {
+      return {
+        qualityIndex: null,
+        bitrate: null,
+        width: null,
+        height: null,
+        id: null
+      };
+    }
+
+    function now() {
+      return performance.now();
+    }
+
+    function createSessionId() {
+      return "exp-" + Date.now();
+    }
+
+    function getDefaultMpdUrl() {
+      return window.location.origin + "/dash/test2/stream.mpd";
+    }
+
+    function getDefaultTcpWsUrl() {
+      const wsScheme = window.location.protocol === "https:" ? "wss:" : "ws:";
+      const hostname = window.location.hostname || "127.0.0.1";
+      return wsScheme + "//" + hostname + ":8765";
+    }
+
+    function setStatus(message, tone) {
+      statusView.innerHTML = "<strong>" + message + "</strong>";
+      statusView.className = "status";
+      if (tone === "ok") {
+        statusView.classList.add("tcp-ok");
+      } else if (tone === "warn") {
+        statusView.classList.add("tcp-warn");
+      }
+    }
+
+    function addLog(obj) {
+      const record = {
+        wallTime: new Date().toISOString(),
+        sessionId,
+        ...obj
+      };
+
+      logs.push(record);
+      logView.textContent += JSON.stringify(record) + "\n";
+      logView.scrollTop = logView.scrollHeight;
+      console.log(record);
+    }
+
+    function getTcpMaxAgeMs() {
+      const value = Number(tcpMaxAgeMsInput.value);
+      return Number.isFinite(value) && value > 0 ? value : 1500;
+    }
+
+    function getFreshTcpMetrics() {
+      if (!latestTcpMetrics) return null;
+
+      const ageMs = now() - latestTcpReceivedAt;
+      if (ageMs > getTcpMaxAgeMs()) return null;
+
+      return {
+        ...latestTcpMetrics,
+        ageMs
+      };
+    }
+
+    function getBufferLevel() {
+      try {
+        return player.getDashMetrics().getCurrentBufferLevel("video");
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function getVideoRepresentationsSafe() {
+      try {
+        const representations = player.getRepresentationsByType("video");
+        return Array.isArray(representations) ? representations : [];
+      } catch (error) {
+        return [];
+      }
+    }
+
+    function getCurrentQualitySafe() {
+      try {
+        const representation = player.getCurrentRepresentationForType("video");
+        const quality = representation?.absoluteIndex ?? representation?.index;
+        if (Number.isInteger(quality)) return quality;
+
+        if (representation?.id !== null && representation?.id !== undefined) {
+          const representations = getVideoRepresentationsSafe();
+          const matchedIndex = representations.findIndex(
+            (item) => String(item.id) === String(representation.id)
+          );
+          if (matchedIndex >= 0) return matchedIndex;
+        }
+      } catch (error) {}
+
+      return lastVideoQuality;
+    }
+
+    function getBitrateInfoByQuality(quality) {
+      try {
+        const representations = getVideoRepresentationsSafe();
+        const representation = representations.find(
+          (item) => item.absoluteIndex === quality || item.index === quality
+        ) ?? representations[quality];
+        if (quality !== null && quality !== undefined && representation) {
+          return {
+            qualityIndex: quality,
+            bitrate: representation.bandwidth ?? representation.bitrate ?? null,
+            width: representation.width ?? null,
+            height: representation.height ?? null,
+            id: representation.id ?? null
+          };
+        }
+      } catch (e) {}
+
+      return {
+        qualityIndex: quality ?? null,
+        bitrate: null,
+        width: null,
+        height: null,
+        id: null
+      };
+    }
+
+    function getCurrentBitrateInfoSafe() {
+      const quality = getCurrentQualitySafe();
+      if (quality !== null && quality !== undefined) {
+        const info = getBitrateInfoByQuality(quality);
+        if (info.bitrate !== null) {
+          lastVideoBitrateInfo = info;
+          return info;
+        }
+      }
+
+      return lastVideoBitrateInfo;
+    }
+
+    function formatBitrate(bitrate) {
+      if (!Number.isFinite(bitrate)) return "-";
+      return (bitrate / 1000).toFixed(0) + " kbps";
+    }
+
+    function updateMetricCards() {
+      const bufferLevel = getBufferLevel();
+      const tcpMetrics = getFreshTcpMetrics();
+      const bitrateInfo = getCurrentBitrateInfoSafe();
+
+      qualityValue.textContent =
+        lastVideoQuality === null || lastVideoQuality === undefined
+          ? "-"
+          : String(lastVideoQuality);
+
+      bitrateValue.textContent = formatBitrate(bitrateInfo.bitrate);
+      bufferValue.textContent =
+        bufferLevel === null || bufferLevel === undefined
+          ? "-"
+          : bufferLevel.toFixed(2) + " s";
+
+      updateGuardrailSignalStatus(tcpMetrics);
+
+      if (!tcpMetrics) {
+        tcpSignalValue.textContent = "No Signal";
+        tcpSignalValue.className = "v";
+        return;
+      }
+
+      const rttInflation = getRttInflation(tcpMetrics);
+      const retransDelta = Number(tcpMetrics.retransmissions_delta ?? 0);
+      tcpSignalValue.textContent =
+        "age=" + tcpMetrics.ageMs.toFixed(0) +
+        "ms rttx=" + rttInflation.toFixed(2) +
+        " retx=" + retransDelta;
+      tcpSignalValue.className =
+        "v " + (isCongested(tcpMetrics) ? "tcp-warn" : "tcp-ok");
+    }
+
+    function updateGuardrailSignalStatus(tcpMetrics) {
+      if (!player || tcpAwareModeSelect.value === "off") return;
+
+      if (!tcpMetrics) {
+        guardrailValue.textContent = "No fresh TCP signal";
+        return;
+      }
+
+      // Guardrail actions remain tied to completed video fragments. Keep the
+      // status card current between those evaluations as TCP samples arrive.
+      if (
+        guardrailValue.textContent === "Inactive" ||
+        guardrailValue.textContent === "No fresh TCP signal"
+      ) {
+        guardrailValue.textContent = isCongested(tcpMetrics)
+          ? "Congestion detected"
+          : "Healthy";
+      }
+    }
+
+    function resetMetrics() {
+      logs.length = 0;
+      logView.textContent = "";
+
+      startWall = now();
+      firstPlayingTs = null;
+      stallStart = null;
+      totalStallMs = 0;
+      stallCount = 0;
+      switchCount = 0;
+      lastVideoQuality = null;
+      lastVideoBitrateInfo = createEmptyBitrateInfo();
+      lastGuardrailActionTs = 0;
+      latestTcpMetrics = null;
+      latestTcpReceivedAt = 0;
+      lastVideoFragmentStartedAt = 0;
+      lastSchedulerRecoveryAt = 0;
+      guardrailValue.textContent = "Inactive";
+      updateMetricCards();
+    }
+
+    function closeTcpSocket() {
+      if (tcpSocket) {
+        try {
+          tcpSocket.close();
+        } catch (e) {}
+      }
+      tcpSocket = null;
+    }
+
+    function connectTcpSignalChannel() {
+      closeTcpSocket();
+
+      if (tcpAwareModeSelect.value === "off") {
+        setStatus("TCP-aware mode is off", "warn");
+        return;
+      }
+
+      const wsUrl = tcpWsUrlInput.value.trim() || getDefaultTcpWsUrl();
+      tcpWsUrlInput.value = wsUrl;
+      if (!wsUrl) {
+        setStatus("TCP signal URL is empty", "warn");
+        return;
+      }
+
+      tcpSocket = new WebSocket(wsUrl);
+
+      tcpSocket.onopen = function () {
+        const hello = {
+          type: "hello",
+          session_id: sessionId,
+          client_ip: null
+        };
+
+        tcpSocket.send(JSON.stringify(hello));
+        addLog({
+          event: "TCP_SIGNAL_CONNECTED",
+          wsUrl,
+          hello
+        });
+        setStatus("TCP signal connected", "ok");
+      };
+
+      tcpSocket.onmessage = function (event) {
+        let message;
+        try {
+          message = JSON.parse(event.data);
+        } catch (error) {
+          addLog({
+            event: "TCP_SIGNAL_PARSE_ERROR",
+            raw: String(event.data),
+            error: String(error)
+          });
+          return;
+        }
+
+        if (message.type !== "tcp_metrics") {
+          addLog({
+            event: "TCP_SIGNAL_IGNORED",
+            messageType: message.type ?? null
+          });
+          return;
+        }
+
+        latestTcpMetrics = message;
+        latestTcpReceivedAt = now();
+        updateMetricCards();
+
+        addLog({
+          event: "TCP_SIGNAL_UPDATE",
+          tcpMetrics: message
+        });
+      };
+
+      tcpSocket.onerror = function (event) {
+        addLog({
+          event: "TCP_SIGNAL_ERROR",
+          error: String(event.type || "error")
+        });
+        setStatus("TCP signal error", "warn");
+      };
+
+      tcpSocket.onclose = function () {
+        addLog({
+          event: "TCP_SIGNAL_CLOSED"
+        });
+        setStatus("TCP signal disconnected; fallback to baseline ABR", "warn");
+      };
+    }
+
+    function onRebufferStart(sourceEvent) {
+      const ts = now();
+
+      if (firstPlayingTs === null) return;
+      if (video.ended) return;
+      if (stallStart !== null) return;
+
+      stallStart = ts;
+      stallCount += 1;
+
+      addLog({
+        event: "REBUFFER_START",
+        sourceEvent,
+        ts,
+        playbackTime: video.currentTime,
+        bufferLevel: getBufferLevel(),
+        stallCount,
+        tcpMetrics: getFreshTcpMetrics()
+      });
+    }
+
+    function onRebufferEnd() {
+      const ts = now();
+
+      if (stallStart === null) return;
+
+      const duration = ts - stallStart;
+      totalStallMs += duration;
+
+      addLog({
+        event: "REBUFFER_END",
+        ts,
+        playbackTime: video.currentTime,
+        stallDurationMs: duration,
+        totalStallMs,
+        stallCount,
+        bufferLevel: getBufferLevel(),
+        tcpMetrics: getFreshTcpMetrics()
+      });
+
+      stallStart = null;
+    }
+
+    function getRttInflation(tcpMetrics) {
+      const rttUs = Number(tcpMetrics.rtt_us ?? 0);
+      const rttMinUs = Number(tcpMetrics.rtt_min_us ?? 0);
+
+      if (!Number.isFinite(rttUs) || !Number.isFinite(rttMinUs) || rttMinUs <= 0) {
+        return 1;
+      }
+
+      return rttUs / rttMinUs;
+    }
+
+    function getCurrentBitrateBps() {
+      const info = getCurrentBitrateInfoSafe();
+      if (!Number.isFinite(info.bitrate)) return null;
+      return info.bitrate;
+    }
+
+    function isCongested(tcpMetrics) {
+      const cc = String(tcpMetrics.cc ?? "").toLowerCase();
+      const rttInflation = getRttInflation(tcpMetrics);
+      const retransDelta = Number(tcpMetrics.retransmissions_delta ?? 0);
+      const retransRate = Number(tcpMetrics.retransmission_rate ?? 0);
+      const deliveryRateBps = Number(tcpMetrics.delivery_rate_bps ?? 0);
+      const currentBitrateBps = getCurrentBitrateBps();
+
+      if (cc === "bbr") {
+        return (
+          (rttInflation > 1.4 && retransDelta > 0) ||
+          (rttInflation > 1.4 &&
+            Number.isFinite(currentBitrateBps) &&
+            deliveryRateBps > 0 &&
+            deliveryRateBps < currentBitrateBps * 1.15) ||
+          retransRate > 0.02
+        );
+      }
+
+      return (
+        rttInflation > 1.5 ||
+        retransDelta > 0 ||
+        retransRate > 0.02
+      );
+    }
+
+    function maybeApplyTcpGuardrail(sourceEvent) {
+      if (!player || tcpAwareModeSelect.value === "off") return;
+
+      const tcpMetrics = getFreshTcpMetrics();
+      if (!tcpMetrics) {
+        guardrailValue.textContent = "No fresh TCP signal";
+        return;
+      }
+
+      const currentQuality = getCurrentQualitySafe();
+      const bitrateList = getVideoRepresentationsSafe();
+      const bufferLevel = getBufferLevel();
+      const congested = isCongested(tcpMetrics);
+      const cooldownMs = 1500;
+
+      if (!Array.isArray(bitrateList) || bitrateList.length === 0) return;
+      if (currentQuality === null || currentQuality === undefined) return;
+
+      if (!congested) {
+        guardrailValue.textContent = "Healthy";
+        return;
+      }
+
+      if (bufferLevel !== null && bufferLevel > 8 && stallCount === 0) {
+        guardrailValue.textContent = "Watching";
+        return;
+      }
+
+      if (now() - lastGuardrailActionTs < cooldownMs) {
+        guardrailValue.textContent = "Cooldown";
+        return;
+      }
+
+      const nextQuality = Math.max(0, currentQuality - 1);
+      if (nextQuality === currentQuality) {
+        guardrailValue.textContent = "At lowest quality";
+        return;
+      }
+
+      try {
+        player.setRepresentationForTypeByIndex("video", nextQuality);
+        lastGuardrailActionTs = now();
+        guardrailValue.textContent = "Downshift to Q" + nextQuality;
+
+        addLog({
+          event: "TCP_GUARDRAIL_APPLIED",
+          sourceEvent,
+          currentQuality,
+          nextQuality,
+          bufferLevel,
+          tcpMetrics
+        });
+      } catch (error) {
+        addLog({
+          event: "TCP_GUARDRAIL_ERROR",
+          sourceEvent,
+          error: String(error)
+        });
+        guardrailValue.textContent = "Error";
+      }
+    }
+
+    function resolveFragmentMediaType(event) {
+      const explicitType = event.mediaType ?? event.request?.mediaType ?? null;
+      if (explicitType) return explicitType;
+
+      const requestType = event.request?.type ?? null;
+      if (requestType !== "MediaSegment" && requestType !== "InitializationSegment") {
+        return null;
+      }
+
+      try {
+        const videoTracks = player?.getTracksFor("video") ?? [];
+        const audioTracks = player?.getTracksFor("audio") ?? [];
+        if (videoTracks.length > 0 && audioTracks.length === 0) {
+          return "video";
+        }
+      } catch (error) {}
+
+      return null;
+    }
+
+    function maybeRecoverSegmentScheduler() {
+      if (!player || video.paused || video.ended || firstPlayingTs === null) return;
+
+      const bufferLevel = getBufferLevel();
+      const ts = now();
+      if (!Number.isFinite(bufferLevel) || bufferLevel >= 4) return;
+      if (!lastVideoFragmentStartedAt || ts - lastVideoFragmentStartedAt < 3000) return;
+      if (ts - lastSchedulerRecoveryAt < 5000) return;
+
+      lastSchedulerRecoveryAt = ts;
+      const duration = Number.isFinite(video.duration) ? video.duration : Infinity;
+      const recoveryTime = Math.min(video.currentTime + 0.01, duration - 0.01);
+
+      addLog({
+        event: "SCHEDULER_RECOVERY",
+        ts,
+        playbackTime: video.currentTime,
+        recoveryTime,
+        bufferLevel,
+        recoveryMode: "reattach-source",
+        timeSinceLastVideoRequestMs: ts - lastVideoFragmentStartedAt
+      });
+
+      try {
+        const sourceUrl = mpdUrlInput.value.trim() || getDefaultMpdUrl();
+        player.attachSource(sourceUrl, recoveryTime);
+      } catch (error) {
+        addLog({
+          event: "SCHEDULER_RECOVERY_ERROR",
+          ts: now(),
+          recoveryMode: "reattach-source",
+          error: String(error)
+        });
+      }
+    }
+
+    function startPlayer() {
+      if (heartbeatTimer) {
+        clearInterval(heartbeatTimer);
+        heartbeatTimer = null;
+      }
+
+      closeTcpSocket();
+
+      if (player) {
+        try {
+          player.reset();
+        } catch (e) {}
+      }
+
+      resetMetrics();
+
+      sessionId = sessionIdInput.value.trim() || createSessionId();
+      sessionIdInput.value = sessionId;
+
+      const mpdUrl = mpdUrlInput.value.trim() || getDefaultMpdUrl();
+      mpdUrlInput.value = mpdUrl;
+      const abr = abrSelect.value;
+
+      player = dashjs.MediaPlayer().create();
+      player.updateSettings({
+        streaming: {
+          abr: {
+            ABRStrategy: abr,
+            useDefaultABRRules: true,
+            bandwidthSafetyFactor: 0.9
+          }
+        }
+      });
+
+      player.initialize(video, mpdUrl, true);
+      connectTcpSignalChannel();
+
+      addLog({
+        event: "START",
+        ts: startWall,
+        abr,
+        mpd: mpdUrl,
+        tcpAwareMode: tcpAwareModeSelect.value,
+        tcpWsUrl: tcpWsUrlInput.value.trim()
+      });
+
+      player.on(dashjs.MediaPlayer.events.STREAM_INITIALIZED, function () {
+        setStatus("Stream initialized", "ok");
+
+        addLog({
+          event: "STREAM_INITIALIZED",
+          ts: now(),
+          bitrateList: getVideoRepresentationsSafe()
+        });
+      });
+
+      player.on(dashjs.MediaPlayer.events.QUALITY_CHANGE_REQUESTED, function (event) {
+        addLog({
+          event: "QUALITY_CHANGE_REQUESTED",
+          ts: now(),
+          mediaType: event.mediaType,
+          oldQuality: event.oldQuality ?? null,
+          newQuality: event.newQuality ?? null,
+          reason: event.reason ?? null,
+          tcpMetrics: getFreshTcpMetrics()
+        });
+      });
+
+      player.on(dashjs.MediaPlayer.events.QUALITY_CHANGE_RENDERED, function (event) {
+        if (event.mediaType === "video" && event.newRepresentation) {
+          const rep = event.newRepresentation;
+          const currentInfo = {
+            qualityIndex: rep.absoluteIndex ?? getCurrentQualitySafe(),
+            bitrate: rep.bandwidth ?? null,
+            width: rep.width ?? null,
+            height: rep.height ?? null,
+            id: rep.id ?? null
+          };
+
+          if (
+            lastVideoQuality !== null &&
+            currentInfo.qualityIndex !== lastVideoQuality
+          ) {
+            switchCount += 1;
+          }
+
+          lastVideoQuality = currentInfo.qualityIndex;
+          lastVideoBitrateInfo = currentInfo;
+          updateMetricCards();
+        }
+
+        addLog({
+          event: "QUALITY_CHANGE_RENDERED",
+          ts: now(),
+          mediaType: event.mediaType,
+          switchCount,
+          bitrateInfo: lastVideoBitrateInfo,
+          bufferLevel: getBufferLevel(),
+          playbackTime: video.currentTime,
+          tcpMetrics: getFreshTcpMetrics()
+        });
+      });
+
+      player.on(dashjs.MediaPlayer.events.FRAGMENT_LOADING_STARTED, function (event) {
+        if (
+          resolveFragmentMediaType(event) === "video" &&
+          event.request?.type === "MediaSegment"
+        ) {
+          lastVideoFragmentStartedAt = now();
+        }
+
+        addLog({
+          event: "FRAGMENT_LOADING_STARTED",
+          ts: now(),
+          requestUrl: event.request?.url ?? null,
+          requestType: event.request?.type ?? null,
+          mediaType: resolveFragmentMediaType(event),
+          playbackTime: video.currentTime,
+          bufferLevel: getBufferLevel(),
+          tcpMetrics: getFreshTcpMetrics()
+        });
+      });
+
+      player.on(dashjs.MediaPlayer.events.FRAGMENT_LOADING_COMPLETED, function (event) {
+        addLog({
+          event: "FRAGMENT_LOADING_COMPLETED",
+          ts: now(),
+          requestUrl: event.request?.url ?? null,
+          requestType: event.request?.type ?? null,
+          mediaType: resolveFragmentMediaType(event),
+          playbackTime: video.currentTime,
+          bufferLevel: getBufferLevel(),
+          tcpMetrics: getFreshTcpMetrics()
+        });
+
+        if (resolveFragmentMediaType(event) === "video") {
+          maybeApplyTcpGuardrail("FRAGMENT_LOADING_COMPLETED");
+          updateMetricCards();
+        }
+      });
+
+      player.on(dashjs.MediaPlayer.events.PLAYBACK_WAITING, function () {
+        addLog({
+          event: "PLAYBACK_WAITING",
+          ts: now(),
+          playbackTime: video.currentTime,
+          bufferLevel: getBufferLevel(),
+          tcpMetrics: getFreshTcpMetrics()
+        });
+        onRebufferStart("PLAYBACK_WAITING");
+      });
+
+      player.on(dashjs.MediaPlayer.events.PLAYBACK_STALLED, function () {
+        addLog({
+          event: "PLAYBACK_STALLED",
+          ts: now(),
+          playbackTime: video.currentTime,
+          bufferLevel: getBufferLevel(),
+          tcpMetrics: getFreshTcpMetrics()
+        });
+        onRebufferStart("PLAYBACK_STALLED");
+      });
+
+      player.on(dashjs.MediaPlayer.events.PLAYBACK_PLAYING, function () {
+        const ts = now();
+
+        if (firstPlayingTs === null && video.currentTime > 0) {
+          firstPlayingTs = ts;
+          addLog({
+            event: "STARTUP_DELAY",
+            ts,
+            startupDelayMs: firstPlayingTs - startWall
+          });
+        }
+
+        onRebufferEnd();
+        updateMetricCards();
+
+        addLog({
+          event: "PLAYBACK_PLAYING",
+          ts,
+          playbackTime: video.currentTime,
+          bufferLevel: getBufferLevel(),
+          currentQuality: getCurrentQualitySafe(),
+          bitrateInfo: getCurrentBitrateInfoSafe(),
+          tcpMetrics: getFreshTcpMetrics()
+        });
+      });
+
+      player.on(dashjs.MediaPlayer.events.PLAYBACK_ENDED, function () {
+        const ts = now();
+
+        if (stallStart !== null) {
+          stallStart = null;
+        }
+
+        addLog({
+          event: "PLAYBACK_ENDED",
+          ts,
+          playbackTime: video.currentTime,
+          totalPlayTimeMs: ts - startWall,
+          startupDelayMs: firstPlayingTs ? firstPlayingTs - startWall : null,
+          totalStallMs,
+          totalStallSec: totalStallMs / 1000,
+          stallCount,
+          switchCount,
+          finalQuality: getCurrentQualitySafe(),
+          finalBitrateInfo: getCurrentBitrateInfoSafe()
+        });
+
+        setStatus("Playback ended", "ok");
+      });
+
+      player.on(dashjs.MediaPlayer.events.ERROR, function (event) {
+        addLog({
+          event: "ERROR",
+          ts: now(),
+          error: event
+        });
+        setStatus("dash.js error", "warn");
+      });
+
+      heartbeatTimer = setInterval(function () {
+        if (!player) return;
+
+        updateMetricCards();
+
+        addLog({
+          event: "HEARTBEAT",
+          ts: now(),
+          playbackTime: video.currentTime,
+          paused: video.paused,
+          ended: video.ended,
+          bufferLevel: getBufferLevel(),
+          currentQuality: lastVideoQuality,
+          bitrateInfo: lastVideoBitrateInfo,
+          totalStallMs,
+          stallCount,
+          switchCount,
+          tcpMetrics: getFreshTcpMetrics()
+        });
+      }, 1000);
+    }
+
+    document.getElementById("startBtn").onclick = startPlayer;
+
+    document.getElementById("downloadBtn").onclick = function () {
+      const blob = new Blob([JSON.stringify(logs, null, 2)], {
+        type: "application/json"
+      });
+
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = "dash_qoe_log_" + Date.now() + ".json";
+      link.click();
+    };
+
+    mpdUrlInput.value = getDefaultMpdUrl();
+    tcpWsUrlInput.value = getDefaultTcpWsUrl();
+    sessionIdInput.value = createSessionId();
+
+    window.addEventListener("error", function (event) {
+      addLog({
+        event: "BROWSER_ERROR",
+        message: event.message ?? null,
+        filename: event.filename ?? null,
+        lineno: event.lineno ?? null,
+        colno: event.colno ?? null,
+        error: event.error ? String(event.error.stack || event.error) : null
+      });
+    });
+
+    window.addEventListener("unhandledrejection", function (event) {
+      const reason = event.reason;
+      addLog({
+        event: "UNHANDLED_REJECTION",
+        error: reason ? String(reason.stack || reason) : null
+      });
+    });
+
+    updateMetricCards();
+  </script>
+</body>
+</html>
+

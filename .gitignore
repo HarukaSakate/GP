@@ -1,0 +1,9 @@
+# Root-owned host network configuration; not project source.
+netplan/
+
+# LFS uploads that repeatedly timed out; retained locally only.
+encoded/bbb_1080_gop.mp4
+encoded/bbb_480_gop.mp4
+encoded_fixed/bbb_1080.mp4
+encoded_fixed/bbb_480.mp4
+encoded_fixed/bbb_720.mp4

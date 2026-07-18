@@ -1,0 +1,374 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>DASH ABR QoE Test</title>
+  <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 20px;
+    }
+
+    video {
+      width: 960px;
+      max-width: 100%;
+      border: 1px solid #ccc;
+    }
+
+    pre {
+      background: #f7f7f7;
+      padding: 12px;
+      height: 300px;
+      overflow: auto;
+    }
+
+    button,
+    select {
+      margin-right: 8px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>DASH ABR QoE Test</h1>
+
+  <label>ABR:
+    <select id="abr">
+      <option value="abrThroughput">Throughput</option>
+      <option value="abrBola">BOLA</option>
+    </select>
+  </label>
+
+  <button id="startBtn">Start</button>
+  <button id="downloadBtn">Download Log</button>
+
+  <p id="status"></p>
+  <video id="video" controls></video>
+  <pre id="log"></pre>
+
+  <script>
+    const MPD_URL = "http:192.168.10.1:8000/test2/stream.mpd";
+
+    const logView = document.getElementById("log");
+    const statusView = document.getElementById("status");
+    const video = document.getElementById("video");
+
+    const logs = [];
+
+    let player = null;
+    let heartbeatTimer = null;
+
+    let startWall = null;
+    let firstPlayingTs = null;
+
+    let stallStart = null;
+    let totalStallMs = 0;
+    let stallCount = 0;
+
+    let lastQuality = null;
+    let switchCount = 0;
+
+    function now() {
+      return performance.now();
+    }
+
+    function addLog(obj) {
+      const record = {
+        wallTime: new Date().toISOString(),
+        ...obj
+      };
+
+      logs.push(record);
+      logView.textContent += JSON.stringify(record) + "\n";
+      logView.scrollTop = logView.scrollHeight;
+      console.log(record);
+    }
+
+    function getBufferLevel() {
+      try {
+        return player.getDashMetrics().getCurrentBufferLevel("video");
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function getCurrentQuality() {
+      try {
+        return player.getQualityFor("video");
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function getBitrateInfo() {
+      try {
+        const quality = player.getQualityFor("video");
+        const bitrateList = player.getBitrateInfoListFor("video");
+
+        if (
+          quality !== null &&
+          quality !== undefined &&
+          bitrateList &&
+          bitrateList[quality]
+        ) {
+          return {
+            qualityIndex: quality,
+            bitrate: bitrateList[quality].bitrate,
+            width: bitrateList[quality].width,
+            height: bitrateList[quality].height
+          };
+        }
+      } catch (e) {}
+
+      return {
+        qualityIndex: null,
+        bitrate: null,
+        width: null,
+        height: null
+      };
+    }
+
+    function resetMetrics() {
+      logs.length = 0;
+      logView.textContent = "";
+
+      startWall = now();
+      firstPlayingTs = null;
+
+      stallStart = null;
+      totalStallMs = 0;
+      stallCount = 0;
+
+      lastQuality = null;
+      switchCount = 0;
+    }
+
+    function onRebufferStart(sourceEvent) {
+      const t = now();
+
+      if (firstPlayingTs === null) {
+        return;
+      }
+
+      if (video.ended) {
+        return;
+      }
+
+      if (stallStart !== null) {
+        return;
+      }
+
+      stallStart = t;
+      stallCount += 1;
+
+      addLog({
+        event: "REBUFFER_START",
+        sourceEvent,
+        ts: t,
+        playbackTime: video.currentTime,
+        bufferLevel: getBufferLevel(),
+        stallCount
+      });
+    }
+
+    function onRebufferEnd() {
+      const t = now();
+
+      if (stallStart === null) {
+        return;
+      }
+
+      const duration = t - stallStart;
+      totalStallMs += duration;
+
+      addLog({
+        event: "REBUFFER_END",
+        ts: t,
+        playbackTime: video.currentTime,
+        stallDurationMs: duration,
+        totalStallMs,
+        stallCount,
+        bufferLevel: getBufferLevel()
+      });
+
+      stallStart = null;
+    }
+
+    function startPlayer() {
+      if (heartbeatTimer) {
+        clearInterval(heartbeatTimer);
+        heartbeatTimer = null;
+      }
+
+      if (player) {
+        player.reset();
+      }
+
+      resetMetrics();
+
+      const abr = document.getElementById("abr").value;
+
+      player = dashjs.MediaPlayer().create();
+
+      player.updateSettings({
+        streaming: {
+          abr: {
+            ABRStrategy: abr,
+            useDefaultABRRules: true,
+            bandwidthSafetyFactor: 0.9
+          }
+        }
+      });
+
+      player.initialize(video, MPD_URL, true);
+
+      addLog({
+        event: "START",
+        ts: startWall,
+        abr,
+        mpd: MPD_URL
+      });
+
+      player.on(dashjs.MediaPlayer.events.STREAM_INITIALIZED, function () {
+        statusView.textContent = "STREAM_INITIALIZED";
+
+        addLog({
+          event: "STREAM_INITIALIZED",
+          ts: now(),
+          bitrateList: player.getBitrateInfoListFor("video")
+        });
+      });
+
+      player.on(dashjs.MediaPlayer.events.QUALITY_CHANGE_RENDERED, function (e) {
+        if (e.mediaType === "video") {
+          if (lastQuality !== null && e.newQuality !== lastQuality) {
+            switchCount += 1;
+          }
+
+          lastQuality = e.newQuality;
+        }
+
+        addLog({
+          event: "QUALITY_CHANGE_RENDERED",
+          ts: now(),
+          mediaType: e.mediaType,
+          oldQuality: e.oldQuality,
+          newQuality: e.newQuality,
+          switchCount,
+          bitrateInfo: getBitrateInfo(),
+          bufferLevel: getBufferLevel(),
+          playbackTime: video.currentTime
+        });
+      });
+
+      player.on(dashjs.MediaPlayer.events.PLAYBACK_WAITING, function () {
+        addLog({
+          event: "PLAYBACK_WAITING",
+          ts: now(),
+          playbackTime: video.currentTime,
+          bufferLevel: getBufferLevel()
+        });
+
+        onRebufferStart("PLAYBACK_WAITING");
+      });
+
+      player.on(dashjs.MediaPlayer.events.PLAYBACK_STALLED, function () {
+        addLog({
+          event: "PLAYBACK_STALLED",
+          ts: now(),
+          playbackTime: video.currentTime,
+          bufferLevel: getBufferLevel()
+        });
+
+        onRebufferStart("PLAYBACK_STALLED");
+      });
+
+      player.on(dashjs.MediaPlayer.events.PLAYBACK_PLAYING, function () {
+        const t = now();
+
+        if (firstPlayingTs === null && video.currentTime > 0) {
+          firstPlayingTs = t;
+
+          addLog({
+            event: "STARTUP_DELAY",
+            ts: t,
+            startupDelayMs: firstPlayingTs - startWall
+          });
+        }
+
+        onRebufferEnd();
+
+        addLog({
+          event: "PLAYBACK_PLAYING",
+          ts: t,
+          playbackTime: video.currentTime,
+          bufferLevel: getBufferLevel()
+        });
+      });
+
+      player.on(dashjs.MediaPlayer.events.PLAYBACK_ENDED, function () {
+        const t = now();
+
+        if (stallStart !== null) {
+          stallStart = null;
+        }
+
+        addLog({
+          event: "PLAYBACK_ENDED",
+          ts: t,
+          playbackTime: video.currentTime,
+          totalPlayTimeMs: t - startWall,
+          startupDelayMs: firstPlayingTs ? firstPlayingTs - startWall : null,
+          totalStallMs,
+          totalStallSec: totalStallMs / 1000,
+          stallCount,
+          switchCount
+        });
+      });
+
+      player.on(dashjs.MediaPlayer.events.ERROR, function (e) {
+        addLog({
+          event: "ERROR",
+          ts: now(),
+          error: e
+        });
+      });
+
+      heartbeatTimer = setInterval(function () {
+        if (!player) {
+          return;
+        }
+
+        addLog({
+          event: "HEARTBEAT",
+          ts: now(),
+          playbackTime: video.currentTime,
+          paused: video.paused,
+          ended: video.ended,
+          bufferLevel: getBufferLevel(),
+          currentQuality: getCurrentQuality(),
+          bitrateInfo: getBitrateInfo(),
+          totalStallMs,
+          stallCount,
+          switchCount
+        });
+      }, 1000);
+    }
+
+    document.getElementById("startBtn").onclick = startPlayer;
+
+    document.getElementById("downloadBtn").onclick = function () {
+      const blob = new Blob(
+        [JSON.stringify(logs, null, 2)],
+        { type: "application/json" }
+      );
+
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "dash_qoe_log_" + Date.now() + ".json";
+      a.click();
+    };
+  </script>
+</body>
+</html>

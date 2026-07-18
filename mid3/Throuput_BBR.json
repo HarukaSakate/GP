@@ -1,0 +1,5725 @@
+[
+  {
+    "event": "start",
+    "ts": 3169.5999999996275,
+    "abr": "abrThroughput"
+  },
+  {
+    "event": "PLAYBACK_WAITING",
+    "ts": 3393.9000000003725
+  },
+  {
+    "event": "STREAM_INITIALIZED",
+    "ts": 3395.5999999996275
+  },
+  {
+    "event": "PLAYBACK_PLAYING",
+    "ts": 3507.5999999996275,
+    "currentTime": 0.000457
+  },
+  {
+    "event": "QUALITY_CHANGE_RENDERED",
+    "ts": 3649.5999999996275,
+    "mediaType": "video"
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 4169.799999999814,
+    "currentTime": 0.662813,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 11.864
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 5170.5999999996275,
+    "currentTime": 1.663444,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 16.031
+  },
+  {
+    "event": "QUALITY_CHANGE_RENDERED",
+    "ts": 6039.4000000003725,
+    "mediaType": "video"
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 6170.0999999996275,
+    "currentTime": 2.66301,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 17.358
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 7170.5999999996275,
+    "currentTime": 3.663583,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 16.405
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 8169.9000000003725,
+    "currentTime": 4.662816,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 15.343
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 9169.900000000373,
+    "currentTime": 5.662777,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 16.984
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 10170.400000000373,
+    "currentTime": 6.663387,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 15.984
+  },
+  {
+    "event": "QUALITY_CHANGE_RENDERED",
+    "ts": 11086.5,
+    "mediaType": "video"
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 11169.900000000373,
+    "currentTime": 7.662823,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 17.421
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 12170.299999999814,
+    "currentTime": 8.663226,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 16.358
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 13170.099999999627,
+    "currentTime": 9.66294,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 15.562
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 14170.599999999627,
+    "currentTime": 10.663531,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 16.999
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 15170,
+    "currentTime": 11.66288,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 15.936
+  },
+  {
+    "event": "QUALITY_CHANGE_RENDERED",
+    "ts": 16133.099999999627,
+    "mediaType": "video"
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 16170.5,
+    "currentTime": 12.663389,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 17.374
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 17170.400000000373,
+    "currentTime": 13.663277,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 16.577
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 18169.900000000373,
+    "currentTime": 14.662831,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 15.515
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 19169.900000000373,
+    "currentTime": 15.662829,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 16.952
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 20170.299999999814,
+    "currentTime": 16.663285,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 15.889
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 21169.799999999814,
+    "currentTime": 17.662775,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 15.093
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 22170.5,
+    "currentTime": 18.663413,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 16.531
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 23170.099999999627,
+    "currentTime": 19.662956,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 15.468
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 24170.299999999814,
+    "currentTime": 20.663256,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 16.906
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 25170,
+    "currentTime": 21.662846,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 15.843
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 26170,
+    "currentTime": 22.662926,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 17.53
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 27169.900000000373,
+    "currentTime": 23.662818,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 16.483
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 28170.599999999627,
+    "currentTime": 24.663515,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 15.421
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 29170.400000000373,
+    "currentTime": 25.663346,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 16.859
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 30169.900000000373,
+    "currentTime": 26.662822,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 16.062
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 31169.900000000373,
+    "currentTime": 27.662829,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 14.999
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 32169.900000000373,
+    "currentTime": 28.662781,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 16.437
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 33169.90000000037,
+    "currentTime": 29.662841,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 15.374
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 34169.90000000037,
+    "currentTime": 30.662773,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 17.078
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 35170.700000000186,
+    "currentTime": 31.663628,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 16.015
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 36170,
+    "currentTime": 32.662824,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 17.453
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 37169.90000000037,
+    "currentTime": 33.662811,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 16.39
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 38169.90000000037,
+    "currentTime": 34.662857,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 15.593
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 39169.90000000037,
+    "currentTime": 35.662857,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 17.031
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 40169.90000000037,
+    "currentTime": 36.662827,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 15.968
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 41170,
+    "currentTime": 37.662854,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 17.341
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 42170.299999999814,
+    "currentTime": 38.663132,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 16.343
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 43170.299999999814,
+    "currentTime": 39.663237,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 15.546
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 44170.40000000037,
+    "currentTime": 40.663375,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 16.984
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 45170,
+    "currentTime": 41.662853,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 15.921
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 46169.799999999814,
+    "currentTime": 42.662773,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 17.359
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 47170.5,
+    "currentTime": 43.663359,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 16.562
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 48169.90000000037,
+    "currentTime": 44.662847,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 15.499
+  },
+  {
+    "event": "QUALITY_CHANGE_RENDERED",
+    "ts": 49070.799999999814,
+    "mediaType": "video"
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 49169.799999999814,
+    "currentTime": 45.66275,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 14.344
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 50169.90000000037,
+    "currentTime": 46.662757,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 23.374
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 51169.799999999814,
+    "currentTime": 47.662781,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.578
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 52170,
+    "currentTime": 48.662895,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.015
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 53170,
+    "currentTime": 49.662824,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.952
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 54170.200000000186,
+    "currentTime": 50.663107,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.39
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 55170.5,
+    "currentTime": 51.663385,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.593
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 56169.90000000037,
+    "currentTime": 52.662811,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.53
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 57170.299999999814,
+    "currentTime": 53.663198,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.968
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 58170.5,
+    "currentTime": 54.663412,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.906
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 59170.299999999814,
+    "currentTime": 55.663193,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 26.843
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 60169.90000000037,
+    "currentTime": 56.662826,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.546
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 61170.200000000186,
+    "currentTime": 57.663116,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.483
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 62169.90000000037,
+    "currentTime": 58.66283,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.921
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 63170,
+    "currentTime": 59.66283,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.859
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 64169.90000000037,
+    "currentTime": 60.6628,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.499
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 65169.799999999814,
+    "currentTime": 61.662763,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.499
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 66169.90000000037,
+    "currentTime": 62.662762,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.437
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 67170.70000000019,
+    "currentTime": 63.663558,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.874
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 68170,
+    "currentTime": 64.662822,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.078
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 69169.90000000037,
+    "currentTime": 65.662736,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.342
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 70169.90000000037,
+    "currentTime": 66.662762,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.453
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 71169.90000000037,
+    "currentTime": 67.662745,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.39
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 72169.79999999981,
+    "currentTime": 68.662762,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.093
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 73169.79999999981,
+    "currentTime": 69.662774,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.031
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 74170.70000000019,
+    "currentTime": 70.663579,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.437
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 75169.79999999981,
+    "currentTime": 71.662751,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.406
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 76169.90000000037,
+    "currentTime": 72.662754,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.343
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 77170,
+    "currentTime": 73.66282,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.046
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 78169.90000000037,
+    "currentTime": 74.662799,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.984
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 79170,
+    "currentTime": 75.662824,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.403
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 80169.90000000037,
+    "currentTime": 76.662762,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.359
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 81170.59999999963,
+    "currentTime": 77.663471,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.562
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 82169.90000000037,
+    "currentTime": 78.662761,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.999
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 83169.90000000037,
+    "currentTime": 79.662783,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.937
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 84170,
+    "currentTime": 80.662837,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.374
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 85169.90000000037,
+    "currentTime": 81.662781,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.578
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 86169.90000000037,
+    "currentTime": 82.662757,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.515
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 87169.90000000037,
+    "currentTime": 83.662757,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.953
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 88170.29999999981,
+    "currentTime": 84.663248,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.89
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 89169.79999999981,
+    "currentTime": 85.662747,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.343
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 90169.90000000037,
+    "currentTime": 86.662833,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.531
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 91172,
+    "currentTime": 87.664949,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.845
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 92169.79999999981,
+    "currentTime": 88.662746,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.906
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 93169.90000000037,
+    "currentTime": 89.662807,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.843
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 94169.79999999981,
+    "currentTime": 90.662765,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.046
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 95170.5,
+    "currentTime": 91.663406,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.484
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 96170.70000000019,
+    "currentTime": 92.663634,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.421
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 97170.29999999981,
+    "currentTime": 93.663238,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.859
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 98169.90000000037,
+    "currentTime": 94.662837,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.061
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 99170.59999999963,
+    "currentTime": 95.663503,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.499
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 100169.90000000037,
+    "currentTime": 96.662753,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.437
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 101169.90000000037,
+    "currentTime": 97.662821,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.374
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 102170.59999999963,
+    "currentTime": 98.66349,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.078
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 103169.90000000037,
+    "currentTime": 99.662824,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.015
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 104170.09999999963,
+    "currentTime": 100.663034,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.452
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 105169.90000000037,
+    "currentTime": 101.662798,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.39
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 106170.5,
+    "currentTime": 102.663353,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.593
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 107170.5,
+    "currentTime": 103.66338,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.031
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 108169.90000000037,
+    "currentTime": 104.662822,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.968
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 109169.90000000037,
+    "currentTime": 105.662772,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.405
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 110169.90000000037,
+    "currentTime": 106.662795,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.343
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 111169.90000000037,
+    "currentTime": 107.662829,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.546
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 112169.90000000037,
+    "currentTime": 108.662772,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.843
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 113169.79999999981,
+    "currentTime": 109.662767,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.921
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 114170.29999999981,
+    "currentTime": 110.663161,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.358
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 115169.90000000037,
+    "currentTime": 111.662767,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.562
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 116170.70000000019,
+    "currentTime": 112.663663,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.498
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 117170.40000000037,
+    "currentTime": 113.66326,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.937
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 118169.90000000037,
+    "currentTime": 114.66281,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.874
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 119169.90000000037,
+    "currentTime": 115.662792,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.515
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 120169.79999999981,
+    "currentTime": 116.662748,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.514
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 121169.90000000037,
+    "currentTime": 117.662756,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.452
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 122170,
+    "currentTime": 118.662836,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.89
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 123169.90000000037,
+    "currentTime": 119.662778,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.093
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 124169.79999999981,
+    "currentTime": 120.662753,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.363
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 125170.59999999963,
+    "currentTime": 121.663435,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.468
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 126170.5,
+    "currentTime": 122.663463,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.405
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 127170.40000000037,
+    "currentTime": 123.663314,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.843
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 128170.5,
+    "currentTime": 124.663442,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.046
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 129170.79999999981,
+    "currentTime": 125.663673,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 26.984
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 130169.90000000037,
+    "currentTime": 126.662823,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.421
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 131171,
+    "currentTime": 127.663953,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.358
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 132169.7999999998,
+    "currentTime": 128.662792,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.062
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 133169.90000000037,
+    "currentTime": 129.662829,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.999
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 134169.90000000037,
+    "currentTime": 130.662773,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.421
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 135169.90000000037,
+    "currentTime": 131.662794,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.374
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 136170,
+    "currentTime": 132.662854,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.577
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 137169.90000000037,
+    "currentTime": 133.662797,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.015
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 138169.90000000037,
+    "currentTime": 134.662852,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.953
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 139170.7999999998,
+    "currentTime": 135.663669,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.39
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 140170.40000000037,
+    "currentTime": 136.663234,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.593
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 141170,
+    "currentTime": 137.662844,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.531
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 142169.90000000037,
+    "currentTime": 138.662818,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.968
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 143169.90000000037,
+    "currentTime": 139.662778,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.905
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 144169.90000000037,
+    "currentTime": 140.66275,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.343
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 145170.40000000037,
+    "currentTime": 141.66324,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.546
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 146169.90000000037,
+    "currentTime": 142.662765,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.867
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 147169.90000000037,
+    "currentTime": 143.662753,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.92
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 148170.40000000037,
+    "currentTime": 144.663326,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.859
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 149170.5,
+    "currentTime": 145.663418,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.061
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 150170.2999999998,
+    "currentTime": 146.663156,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.499
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 151170.40000000037,
+    "currentTime": 147.663315,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.437
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 152170,
+    "currentTime": 148.662835,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.874
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 153169.90000000037,
+    "currentTime": 149.662836,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.077
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 154169.90000000037,
+    "currentTime": 150.662823,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.515
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 155169.90000000037,
+    "currentTime": 151.662795,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.452
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 156170.40000000037,
+    "currentTime": 152.663293,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.39
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 157170.5,
+    "currentTime": 153.663352,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.093
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 158169.7999999998,
+    "currentTime": 154.662754,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.031
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 159170.5,
+    "currentTime": 155.663498,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.468
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 160169.90000000037,
+    "currentTime": 156.662823,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.406
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 161169.90000000037,
+    "currentTime": 157.66276,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.343
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 162170.7000000002,
+    "currentTime": 158.663551,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.046
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 163170.40000000037,
+    "currentTime": 159.663275,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.984
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 164170.7999999998,
+    "currentTime": 160.663722,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.421
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 165169.90000000037,
+    "currentTime": 161.662803,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.359
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 166169.7999999998,
+    "currentTime": 162.662759,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.562
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 167169.90000000037,
+    "currentTime": 163.66275,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.999
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 168169.7999999998,
+    "currentTime": 164.662752,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.937
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 169170.2999999998,
+    "currentTime": 165.663261,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.374
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 170170.40000000037,
+    "currentTime": 166.663297,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.577
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 171170.59999999963,
+    "currentTime": 167.663462,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.515
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 172169.90000000037,
+    "currentTime": 168.662745,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.952
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 173170.2999999998,
+    "currentTime": 169.663156,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.89
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 174170.5,
+    "currentTime": 170.663441,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.531
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 175169.90000000037,
+    "currentTime": 171.662827,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.531
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 176169.90000000037,
+    "currentTime": 172.662935,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.468
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 177169.90000000037,
+    "currentTime": 173.662777,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.906
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 178169.7999999998,
+    "currentTime": 174.662755,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.843
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 179169.90000000037,
+    "currentTime": 175.662831,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.448
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 180169.90000000037,
+    "currentTime": 176.662796,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.484
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 181170,
+    "currentTime": 177.662846,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.421
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 182170.2999999998,
+    "currentTime": 178.663254,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.859
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 183169.90000000037,
+    "currentTime": 179.662774,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.062
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 184169.90000000037,
+    "currentTime": 180.662746,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 26.999
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 185169.90000000037,
+    "currentTime": 181.662832,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.437
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 186169.90000000037,
+    "currentTime": 182.662823,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.373
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 187169.7999999998,
+    "currentTime": 183.662759,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.077
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 188169.90000000037,
+    "currentTime": 184.662829,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.015
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 189170.2000000002,
+    "currentTime": 185.663191,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.437
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 190170,
+    "currentTime": 186.662824,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.39
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 191170.40000000037,
+    "currentTime": 187.663335,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.593
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 192170.5,
+    "currentTime": 188.663438,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.031
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 193170.5,
+    "currentTime": 189.663405,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.968
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 194169.90000000037,
+    "currentTime": 190.662822,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.405
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 195170.59999999963,
+    "currentTime": 191.66352,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.343
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 196170.5,
+    "currentTime": 192.663484,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.546
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 197170.2999999998,
+    "currentTime": 193.663262,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.984
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 198170.7999999998,
+    "currentTime": 194.663706,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.921
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 199170.5,
+    "currentTime": 195.663422,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.359
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 200170,
+    "currentTime": 196.662859,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.562
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 201170,
+    "currentTime": 197.662839,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.499
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 202170.40000000037,
+    "currentTime": 198.663281,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.937
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 203170.5,
+    "currentTime": 199.663362,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.874
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 204169.90000000037,
+    "currentTime": 200.662785,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.077
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 205170.40000000037,
+    "currentTime": 201.663334,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.515
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 206170.5,
+    "currentTime": 202.663406,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.453
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 207170.5,
+    "currentTime": 203.663412,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.89
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 208169.90000000037,
+    "currentTime": 204.662757,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.093
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 209170.5,
+    "currentTime": 205.663371,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.531
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 210170,
+    "currentTime": 206.662827,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.468
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 211170.5,
+    "currentTime": 207.663416,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.405
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 212170,
+    "currentTime": 208.662859,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.843
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 213169.90000000037,
+    "currentTime": 209.662763,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.046
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 214170,
+    "currentTime": 210.662839,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.484
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 215169.90000000037,
+    "currentTime": 211.662824,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.421
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 216169.90000000037,
+    "currentTime": 212.662757,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.359
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 217170.5,
+    "currentTime": 213.663445,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.905
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 218170.7999999998,
+    "currentTime": 214.663667,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.999
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 219169.7999999998,
+    "currentTime": 215.662767,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.437
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 220170.2999999998,
+    "currentTime": 216.663235,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.374
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 221170,
+    "currentTime": 217.662844,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.577
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 222169.7999999998,
+    "currentTime": 218.662757,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.015
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 223169.90000000037,
+    "currentTime": 219.66282,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.953
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 224169.90000000037,
+    "currentTime": 220.662753,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.39
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 225170.59999999963,
+    "currentTime": 221.663448,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.593
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 226170,
+    "currentTime": 222.662848,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.531
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 227169.90000000037,
+    "currentTime": 223.662785,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.968
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 228169.90000000037,
+    "currentTime": 224.662852,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.905
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 229170.5,
+    "currentTime": 225.663352,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.343
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 230169.90000000037,
+    "currentTime": 226.662838,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.546
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 231170,
+    "currentTime": 227.662829,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.483
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 232170.40000000037,
+    "currentTime": 228.663294,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.921
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 233169.90000000037,
+    "currentTime": 229.662791,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.858
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 234170.59999999963,
+    "currentTime": 230.663465,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.443
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 235169.7999999998,
+    "currentTime": 231.662766,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.499
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 236170.59999999963,
+    "currentTime": 232.663527,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.437
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 237171.09999999963,
+    "currentTime": 233.663954,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.874
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 238169.90000000037,
+    "currentTime": 234.662749,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.077
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 239170.09999999963,
+    "currentTime": 235.663003,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.414
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 240169.90000000037,
+    "currentTime": 236.662802,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.452
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 241170.2999999998,
+    "currentTime": 237.663233,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.39
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 242169.90000000037,
+    "currentTime": 238.662826,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.093
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 243169.90000000037,
+    "currentTime": 239.662817,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.031
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 244170.7000000002,
+    "currentTime": 240.663574,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.452
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 245169.7999999998,
+    "currentTime": 241.662759,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.405
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 246169.90000000037,
+    "currentTime": 242.662814,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.343
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 247170.40000000037,
+    "currentTime": 243.663292,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.046
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 248170.7999999998,
+    "currentTime": 244.663723,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.983
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 249170.40000000037,
+    "currentTime": 245.66332,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.421
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 250169.90000000037,
+    "currentTime": 246.66278,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.359
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 251169.90000000037,
+    "currentTime": 247.662829,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.562
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 252169.90000000037,
+    "currentTime": 248.662749,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.999
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 253170.40000000037,
+    "currentTime": 249.663318,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.937
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 254170,
+    "currentTime": 250.66284,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.374
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 255170.90000000037,
+    "currentTime": 251.663742,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.577
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 256169.90000000037,
+    "currentTime": 252.662796,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.515
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 257170.40000000037,
+    "currentTime": 253.663297,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.953
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 258170.09999999963,
+    "currentTime": 254.662989,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.89
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 259169.7999999998,
+    "currentTime": 255.662756,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.359
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 260170.59999999963,
+    "currentTime": 256.663496,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.531
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 261169.90000000037,
+    "currentTime": 257.662794,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.468
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 262170.4000000004,
+    "currentTime": 258.663395,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.905
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 263169.7999999998,
+    "currentTime": 259.662765,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.843
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 264169.7999999998,
+    "currentTime": 260.662688,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.046
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 265170.2999999998,
+    "currentTime": 261.663269,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.484
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 266169.9000000004,
+    "currentTime": 262.662779,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.421
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 267170,
+    "currentTime": 263.662887,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.859
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 268169.9000000004,
+    "currentTime": 264.662772,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.062
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 269170.4000000004,
+    "currentTime": 265.663374,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.499
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 270169.9000000004,
+    "currentTime": 266.662746,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.437
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 271170.5,
+    "currentTime": 267.66336,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.374
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 272169.9000000004,
+    "currentTime": 268.662763,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.077
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 273170.7000000002,
+    "currentTime": 269.663524,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.015
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 274169.9000000004,
+    "currentTime": 270.662805,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.404
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 275169.9000000004,
+    "currentTime": 271.662791,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.389
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 276169.9000000004,
+    "currentTime": 272.662825,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.593
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 277170.4000000004,
+    "currentTime": 273.66332,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.031
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 278169.9000000004,
+    "currentTime": 274.662855,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.968
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 279170.4000000004,
+    "currentTime": 275.663284,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.406
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 280169.9000000004,
+    "currentTime": 276.662762,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.343
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 281169.7999999998,
+    "currentTime": 277.662774,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.546
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 282170.4000000004,
+    "currentTime": 278.663261,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.984
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 283170.5,
+    "currentTime": 279.663465,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.921
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 284169.9000000004,
+    "currentTime": 280.66282,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.358
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 285169.9000000004,
+    "currentTime": 281.662841,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.562
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 286169.7999999998,
+    "currentTime": 282.662741,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.841
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 287170,
+    "currentTime": 283.662887,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.937
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 288169.9000000004,
+    "currentTime": 284.662769,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.874
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 289170.4000000004,
+    "currentTime": 285.663339,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.531
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 290169.9000000004,
+    "currentTime": 286.662838,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.515
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 291170,
+    "currentTime": 287.662851,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.452
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 292169.9000000004,
+    "currentTime": 288.662794,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.89
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 293170.4000000004,
+    "currentTime": 289.663306,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.093
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 294169.9000000004,
+    "currentTime": 290.662768,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.499
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 295170.5999999996,
+    "currentTime": 291.66348,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.468
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 296170,
+    "currentTime": 292.662873,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.405
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 297169.9000000004,
+    "currentTime": 293.662765,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.843
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 298170.0999999996,
+    "currentTime": 294.663022,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.046
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 299170,
+    "currentTime": 295.662834,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 26.984
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 300170.2999999998,
+    "currentTime": 296.663223,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.421
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 301169.9000000004,
+    "currentTime": 297.662809,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.358
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 302169.9000000004,
+    "currentTime": 298.662806,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.062
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 303169.9000000004,
+    "currentTime": 299.662829,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.999
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 304170.4000000004,
+    "currentTime": 300.663297,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.437
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 305170,
+    "currentTime": 301.66293,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.374
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 306170,
+    "currentTime": 302.66286,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.577
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 307170,
+    "currentTime": 303.66282,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.015
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 308169.7999999998,
+    "currentTime": 304.66276,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.953
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 309169.9000000004,
+    "currentTime": 305.662756,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 26.89
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 310169.9000000004,
+    "currentTime": 306.662832,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.593
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 311170,
+    "currentTime": 307.662852,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.531
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 312170.4000000004,
+    "currentTime": 308.663365,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.968
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 313169.9000000004,
+    "currentTime": 309.662798,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.905
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 314169.9000000004,
+    "currentTime": 310.662755,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.343
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 315170.7000000002,
+    "currentTime": 311.663616,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.546
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 316170.5999999996,
+    "currentTime": 312.66353,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.484
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 317170.5,
+    "currentTime": 313.663461,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.921
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 318169.7999999998,
+    "currentTime": 314.662773,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.858
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 319169.9000000004,
+    "currentTime": 315.662831,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.343
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 320169.9000000004,
+    "currentTime": 316.662816,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.499
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 321170.5999999996,
+    "currentTime": 317.663518,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.437
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 322169.9000000004,
+    "currentTime": 318.662796,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.874
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 323170.7000000002,
+    "currentTime": 319.663625,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.078
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 324169.7999999998,
+    "currentTime": 320.662734,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.34
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 325169.7999999998,
+    "currentTime": 321.662739,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.452
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 326170.4000000004,
+    "currentTime": 322.663241,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.39
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 327170.5,
+    "currentTime": 323.663432,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.093
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 328170.5,
+    "currentTime": 324.663423,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.03
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 329170.2999999998,
+    "currentTime": 325.663159,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.468
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 330170.5,
+    "currentTime": 326.663403,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.406
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 331169.7999999998,
+    "currentTime": 327.662753,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.343
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 332170.0999999996,
+    "currentTime": 328.663058,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.046
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 333170.5999999996,
+    "currentTime": 329.66353,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.983
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 334170,
+    "currentTime": 330.662875,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.396
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 335170.5,
+    "currentTime": 331.663414,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.359
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 336170,
+    "currentTime": 332.662856,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.562
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 337170.4000000004,
+    "currentTime": 333.663354,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.999
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 338170.5,
+    "currentTime": 334.663395,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.937
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 339169.9000000004,
+    "currentTime": 335.662787,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.375
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 340170.4000000004,
+    "currentTime": 336.663389,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.578
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 341169.9000000004,
+    "currentTime": 337.662849,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.515
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 342170.2999999998,
+    "currentTime": 338.663153,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.952
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 343169.9000000004,
+    "currentTime": 339.662785,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.89
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 344169.9000000004,
+    "currentTime": 340.662794,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.546
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 345170.2999999998,
+    "currentTime": 341.663208,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.531
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 346169.9000000004,
+    "currentTime": 342.662758,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.468
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 347169.9000000004,
+    "currentTime": 343.662871,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.906
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 348169.9000000004,
+    "currentTime": 344.662799,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.843
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 349169.9000000004,
+    "currentTime": 345.662816,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.447
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 350169.9000000004,
+    "currentTime": 346.662792,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.484
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 351169.9000000004,
+    "currentTime": 347.662785,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.421
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 352169.9000000004,
+    "currentTime": 348.662825,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.859
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 353170.2000000002,
+    "currentTime": 349.663089,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.062
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 354170.5,
+    "currentTime": 350.663416,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 26.999
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 355169.9000000004,
+    "currentTime": 351.662829,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.437
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 356170,
+    "currentTime": 352.662879,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.374
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 357169.9000000004,
+    "currentTime": 353.662821,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.078
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 358169.9000000004,
+    "currentTime": 354.66279,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.015
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 359170.0999999996,
+    "currentTime": 355.662948,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.452
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 360169.9000000004,
+    "currentTime": 356.662768,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.39
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 361169.9000000004,
+    "currentTime": 357.662827,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.593
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 362169.9000000004,
+    "currentTime": 358.662773,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.031
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 363170.2999999998,
+    "currentTime": 359.663167,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.968
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 364169.9000000004,
+    "currentTime": 360.6628,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.405
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 365169.7999999998,
+    "currentTime": 361.662753,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.343
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 366170,
+    "currentTime": 362.662857,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.546
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 367170,
+    "currentTime": 363.662843,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.984
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 368170.7000000002,
+    "currentTime": 364.663636,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.921
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 369169.7999999998,
+    "currentTime": 365.662768,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.359
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 370170,
+    "currentTime": 366.662937,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.562
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 371170,
+    "currentTime": 367.662895,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.499
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 372170.5,
+    "currentTime": 368.663489,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.937
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 373169.9000000004,
+    "currentTime": 369.662745,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.874
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 374169.9000000004,
+    "currentTime": 370.662842,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.359
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 375169.7999999998,
+    "currentTime": 371.662794,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.515
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 376169.9000000004,
+    "currentTime": 372.662755,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.453
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 377169.9000000004,
+    "currentTime": 373.662783,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.89
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 378169.9000000004,
+    "currentTime": 374.662799,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.093
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 379170.5,
+    "currentTime": 375.663381,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.531
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 380169.9000000004,
+    "currentTime": 376.662851,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.468
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 381169.9000000004,
+    "currentTime": 377.662855,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.406
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 382169.9000000004,
+    "currentTime": 378.662822,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.843
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 383169.9000000004,
+    "currentTime": 379.662821,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.046
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 384169.9000000004,
+    "currentTime": 380.662791,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 26.983
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 385170.5999999996,
+    "currentTime": 381.663486,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.421
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 386169.9000000004,
+    "currentTime": 382.662786,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.358
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 387170.5999999996,
+    "currentTime": 383.66346,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.062
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 388170.4000000004,
+    "currentTime": 384.663277,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.999
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 389169.9000000004,
+    "currentTime": 385.662775,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.432
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 390169.9000000004,
+    "currentTime": 386.662775,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.374
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 391170.4000000004,
+    "currentTime": 387.663257,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.578
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 392169.7999999998,
+    "currentTime": 388.662771,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.015
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 393170.5,
+    "currentTime": 389.663421,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.952
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 394170,
+    "currentTime": 390.662827,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.39
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 395169.9000000004,
+    "currentTime": 391.662777,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.593
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 396169.9000000004,
+    "currentTime": 392.66283,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.531
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 397170.4000000004,
+    "currentTime": 393.663338,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.968
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 398169.9000000004,
+    "currentTime": 394.662758,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.906
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 399169.9000000004,
+    "currentTime": 395.662801,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.343
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 400169.9000000004,
+    "currentTime": 396.662779,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.546
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 401169.7999999998,
+    "currentTime": 397.662781,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.483
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 402169.9000000004,
+    "currentTime": 398.662826,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.921
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 403170.4000000004,
+    "currentTime": 399.663363,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.858
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 404169.9000000004,
+    "currentTime": 400.662841,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.471
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 405170.5,
+    "currentTime": 401.663384,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.499
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 406170.5,
+    "currentTime": 402.663457,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.437
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 407170.4000000004,
+    "currentTime": 403.663356,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.874
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 408170.2000000002,
+    "currentTime": 404.663108,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.077
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 409170.5999999996,
+    "currentTime": 405.663459,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.015
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 410170.4000000004,
+    "currentTime": 406.663368,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.452
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 411169.9000000004,
+    "currentTime": 407.662789,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.39
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 412169.9000000004,
+    "currentTime": 408.662755,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.093
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 413169.9000000004,
+    "currentTime": 409.66277,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.03
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 414170.5,
+    "currentTime": 410.663476,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.468
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 415169.9000000004,
+    "currentTime": 411.662757,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.405
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 416169.9000000004,
+    "currentTime": 412.662763,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.343
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 417169.9000000004,
+    "currentTime": 413.662755,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.046
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 418170.2999999998,
+    "currentTime": 414.663202,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.984
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 419170,
+    "currentTime": 415.662893,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.421
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 420170.4000000004,
+    "currentTime": 416.663356,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.359
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 421169.9000000004,
+    "currentTime": 417.662756,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.562
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 422170.4000000004,
+    "currentTime": 418.663328,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.999
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 423170.5999999996,
+    "currentTime": 419.663506,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.937
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 424170.4000000004,
+    "currentTime": 420.663344,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.374
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 425170.4000000004,
+    "currentTime": 421.663378,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.577
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 426169.9000000004,
+    "currentTime": 422.662813,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.515
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 427170.2000000002,
+    "currentTime": 423.663093,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.952
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 428170.2999999998,
+    "currentTime": 424.663235,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.89
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 429169.9000000004,
+    "currentTime": 425.662766,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.367
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 430169.9000000004,
+    "currentTime": 426.662758,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.53
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 431169.9000000004,
+    "currentTime": 427.662821,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.468
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 432171,
+    "currentTime": 428.663954,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.905
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 433169.9000000004,
+    "currentTime": 429.662826,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.843
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 434169.9000000004,
+    "currentTime": 430.662759,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.343
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 435169.9000000004,
+    "currentTime": 431.662824,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.484
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 436170.5999999996,
+    "currentTime": 432.663496,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.421
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 437170.7000000002,
+    "currentTime": 433.663515,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.859
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 438169.9000000004,
+    "currentTime": 434.662808,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.062
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 439169.9000000004,
+    "currentTime": 435.662836,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.439
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 440170.2000000002,
+    "currentTime": 436.663064,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.437
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 441169.9000000004,
+    "currentTime": 437.662817,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.374
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 442170.4000000004,
+    "currentTime": 438.66337,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.077
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 443170.5999999996,
+    "currentTime": 439.663509,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.015
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 444170.5,
+    "currentTime": 440.663494,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.453
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 445170,
+    "currentTime": 441.662896,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.39
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 446169.7999999998,
+    "currentTime": 442.662778,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.593
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 447169.9000000004,
+    "currentTime": 443.662841,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.031
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 448170.2000000002,
+    "currentTime": 444.663106,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.968
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 449169.9000000004,
+    "currentTime": 445.662831,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.406
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 450169.9000000004,
+    "currentTime": 446.662841,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.343
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 451170,
+    "currentTime": 447.662862,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.546
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 452170.5999999996,
+    "currentTime": 448.663466,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.984
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 453170.7999999998,
+    "currentTime": 449.663659,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.921
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 454169.9000000004,
+    "currentTime": 450.662772,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.358
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 455169.9000000004,
+    "currentTime": 451.662825,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.562
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 456169.9000000004,
+    "currentTime": 452.662826,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.499
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 457169.9000000004,
+    "currentTime": 453.662808,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.937
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 458170,
+    "currentTime": 454.662823,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.874
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 459169.9000000004,
+    "currentTime": 455.662795,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.078
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 460170.4000000004,
+    "currentTime": 456.663387,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.515
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 461169.9000000004,
+    "currentTime": 457.662828,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.453
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 462169.9000000004,
+    "currentTime": 458.6628,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.89
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 463170,
+    "currentTime": 459.662854,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.093
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 464170.4000000004,
+    "currentTime": 460.663292,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.505
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 465170,
+    "currentTime": 461.662894,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.468
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 466170.4000000004,
+    "currentTime": 462.663301,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.405
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 467169.9000000004,
+    "currentTime": 463.662839,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.843
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 468169.9000000004,
+    "currentTime": 464.662839,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.046
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 469169.9000000004,
+    "currentTime": 465.66282,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 26.984
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 470170.5999999996,
+    "currentTime": 466.663444,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.421
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 471169.9000000004,
+    "currentTime": 467.66276,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.359
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 472170.0999999996,
+    "currentTime": 468.662996,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.062
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 473170.5999999996,
+    "currentTime": 469.663498,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.999
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 474170.5,
+    "currentTime": 470.66338,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.437
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 475169.9000000004,
+    "currentTime": 471.66282,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.374
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 476169.7999999998,
+    "currentTime": 472.662756,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.577
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 477169.9000000004,
+    "currentTime": 473.662824,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.015
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 478169.9000000004,
+    "currentTime": 474.662777,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.952
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 479170.2999999998,
+    "currentTime": 475.663163,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.372
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 480170.5,
+    "currentTime": 476.663473,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.593
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 481169.7999999998,
+    "currentTime": 477.662755,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.531
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 482170.2999999998,
+    "currentTime": 478.66325,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.968
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 483169.9000000004,
+    "currentTime": 479.662836,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.906
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 484169.9000000004,
+    "currentTime": 480.662783,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.343
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 485170.2000000002,
+    "currentTime": 481.663168,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.546
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 486170.7999999998,
+    "currentTime": 482.663641,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.483
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 487170.5,
+    "currentTime": 483.663397,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.921
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 488169.9000000004,
+    "currentTime": 484.66286,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.858
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 489169.9000000004,
+    "currentTime": 485.662823,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.358
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 490170.5999999996,
+    "currentTime": 486.663573,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.499
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 491169.9000000004,
+    "currentTime": 487.662794,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.437
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 492169.7999999998,
+    "currentTime": 488.662755,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.874
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 493170.5999999996,
+    "currentTime": 489.663484,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.077
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 494170.4000000004,
+    "currentTime": 490.663349,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.015
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 495170.5999999996,
+    "currentTime": 491.663493,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.452
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 496169.9000000004,
+    "currentTime": 492.662767,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.39
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 497170.2000000002,
+    "currentTime": 493.663138,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.093
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 498170.5,
+    "currentTime": 494.663407,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.031
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 499169.9000000004,
+    "currentTime": 495.662849,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.462
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 500169.9000000004,
+    "currentTime": 496.662802,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.406
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 501169.9000000004,
+    "currentTime": 497.6628,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.343
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 502169.7999999998,
+    "currentTime": 498.662764,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.046
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 503170.5999999996,
+    "currentTime": 499.663518,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.984
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 504170.2000000002,
+    "currentTime": 500.663091,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.421
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 505169.7999999998,
+    "currentTime": 501.662761,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.359
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 506170,
+    "currentTime": 502.662866,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.562
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 507170.5,
+    "currentTime": 503.663399,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.999
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 508170.7999999998,
+    "currentTime": 504.663752,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.937
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 509170.2999999998,
+    "currentTime": 505.663201,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.374
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 510169.9000000004,
+    "currentTime": 506.662774,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.577
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 511170.2999999998,
+    "currentTime": 507.663272,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.515
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 512170.5999999996,
+    "currentTime": 508.663511,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.952
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 513170,
+    "currentTime": 509.662837,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.89
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 514170.4000000004,
+    "currentTime": 510.66324,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.562
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 515170.7999999998,
+    "currentTime": 511.663748,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.531
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 516170.0999999996,
+    "currentTime": 512.662996,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.468
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 517170.4000000004,
+    "currentTime": 513.663222,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.905
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 518169.7999999998,
+    "currentTime": 514.662747,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.843
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 519170.5,
+    "currentTime": 515.663415,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.531
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 520169.9000000004,
+    "currentTime": 516.662764,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.484
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 521170,
+    "currentTime": 517.662853,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.421
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 522169.7999999998,
+    "currentTime": 518.66274,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.858
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 523170.5999999996,
+    "currentTime": 519.663494,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.062
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 524169.9000000004,
+    "currentTime": 520.662864,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 26.999
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 525169.9000000004,
+    "currentTime": 521.662786,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.437
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 526169.9000000004,
+    "currentTime": 522.66275,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.374
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 527169.9000000004,
+    "currentTime": 523.662794,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.077
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 528170.2000000002,
+    "currentTime": 524.663147,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.014
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 529170.4000000004,
+    "currentTime": 525.663298,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.453
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 530169.7999999998,
+    "currentTime": 526.66278,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.39
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 531170.5,
+    "currentTime": 527.663434,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.593
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 532169.9000000004,
+    "currentTime": 528.662792,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.03
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 533169.9000000004,
+    "currentTime": 529.662786,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.968
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 534169.9000000004,
+    "currentTime": 530.66283,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 26.905
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 535170,
+    "currentTime": 531.662885,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.343
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 536170.5,
+    "currentTime": 532.66339,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.546
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 537169.9000000004,
+    "currentTime": 533.662785,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.984
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 538170,
+    "currentTime": 534.662841,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.921
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 539169.9000000004,
+    "currentTime": 535.66277,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.359
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 540170.5,
+    "currentTime": 536.663481,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.562
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 541169.9000000004,
+    "currentTime": 537.662825,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.499
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 542169.9000000004,
+    "currentTime": 538.662769,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.937
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 543170.5999999996,
+    "currentTime": 539.663487,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.874
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 544170.4000000004,
+    "currentTime": 540.663335,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.373
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 545170.5999999996,
+    "currentTime": 541.66351,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.515
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 546170.2000000002,
+    "currentTime": 542.663128,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.453
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 547170.2999999998,
+    "currentTime": 543.663228,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.89
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 548169.9000000004,
+    "currentTime": 544.662771,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.093
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 549169.9000000004,
+    "currentTime": 545.662809,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.343
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 550170.4000000004,
+    "currentTime": 546.663366,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.468
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 551170,
+    "currentTime": 547.662898,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.406
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 552169.9000000004,
+    "currentTime": 548.662762,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.842
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 553169.9000000004,
+    "currentTime": 549.662799,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.046
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 554169.9000000004,
+    "currentTime": 550.662793,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 26.984
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 555169.9000000004,
+    "currentTime": 551.662777,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.421
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 556169.9000000004,
+    "currentTime": 552.662782,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.359
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 557170.4000000004,
+    "currentTime": 553.663281,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.062
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 558169.9000000004,
+    "currentTime": 554.662826,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.999
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 559170.7000000002,
+    "currentTime": 555.663677,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.437
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 560170,
+    "currentTime": 556.662893,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.374
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 561169.9000000004,
+    "currentTime": 557.662798,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.577
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 562169.7999999998,
+    "currentTime": 558.662754,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.015
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 563169.9000000004,
+    "currentTime": 559.66275,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.953
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 564169.9000000004,
+    "currentTime": 560.662763,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 29.39
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 565170.5999999996,
+    "currentTime": 561.6635,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.593
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 566170.5999999996,
+    "currentTime": 562.663491,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.531
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 567169.9000000004,
+    "currentTime": 563.662762,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.968
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 568170.5999999996,
+    "currentTime": 564.663506,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.905
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 569169.9000000004,
+    "currentTime": 565.662802,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 26.843
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 570169.9000000004,
+    "currentTime": 566.662786,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.546
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 571170.2999999998,
+    "currentTime": 567.663193,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 28.88
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 572170.4000000004,
+    "currentTime": 568.663345,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 27.879
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 573170,
+    "currentTime": 569.662822,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 26.817
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 574169.7999999998,
+    "currentTime": 570.662744,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 26.02
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 575169.9000000004,
+    "currentTime": 571.662804,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 24.957
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 576171,
+    "currentTime": 572.663953,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 23.895
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 577170.4000000004,
+    "currentTime": 573.663222,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 22.832
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 578169.9000000004,
+    "currentTime": 574.662844,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 22.035
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 579170.2000000002,
+    "currentTime": 575.663104,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 20.973
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 580170.2000000002,
+    "currentTime": 576.663139,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 19.911
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 581169.9000000004,
+    "currentTime": 577.662824,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 18.848
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 582169.7999999998,
+    "currentTime": 578.662757,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 18.051
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 583170.4000000004,
+    "currentTime": 579.663278,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 16.989
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 584170.5,
+    "currentTime": 580.663431,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 15.926
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 585170.0999999996,
+    "currentTime": 581.662935,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 14.864
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 586169.9000000004,
+    "currentTime": 582.662824,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 13.801
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 587169.9000000004,
+    "currentTime": 583.662759,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 13.005
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 588170.2999999998,
+    "currentTime": 584.663188,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 11.942
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 589170.4000000004,
+    "currentTime": 585.663299,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 10.879
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 590169.7999999998,
+    "currentTime": 586.662747,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 9.817
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 591170.4000000004,
+    "currentTime": 587.663299,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 9.02
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 592171.0999999996,
+    "currentTime": 588.663944,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 7.958
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 593169.9000000004,
+    "currentTime": 589.662749,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 6.895
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 594170,
+    "currentTime": 590.662832,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 5.833
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 595169.7999999998,
+    "currentTime": 591.662775,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 5.036
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 596170.5,
+    "currentTime": 592.663471,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 3.973
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 597170.5,
+    "currentTime": 593.663373,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 2.911
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 598169.9000000004,
+    "currentTime": 594.662756,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 1.848
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 599170.2999999998,
+    "currentTime": 595.663171,
+    "paused": false,
+    "ended": false,
+    "bufferLevel": 1.051
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 600170,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 601170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 602170.5999999996,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 603170.5999999996,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 604170.4000000004,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 605170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 606170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 607170.4000000004,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 608170.2999999998,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 609170.5999999996,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 610170.5999999996,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 611170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 612170.4000000004,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 613170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 614169.9000000004,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 615170.4000000004,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 616170.2000000002,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 617170.4000000004,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 618170.4000000004,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 619170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 620170.7000000002,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 621170.5999999996,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 622170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 623170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 624170.2999999998,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 625170.4000000004,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 626170,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 627170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 628170.5999999996,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 629169.9000000004,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 630170.4000000004,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 631170.2999999998,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 632170.2999999998,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 633170.5999999996,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 634170.7999999998,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 635170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 636170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 637170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 638170,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 639170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 640170.4000000004,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 641169.9000000004,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 642170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 643170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 644170,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 645169.9000000004,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 646170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 647170.5999999996,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 648170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 649170.5999999996,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 650170.7000000002,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 651170.4000000004,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 652170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 653170.7000000002,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 654170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 655170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 656170.5999999996,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 657170.0999999996,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 658170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 659170.4000000004,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 660169.9000000004,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 661169.9000000004,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 662170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 663170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 664170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 665170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 666170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 667170,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 668170.5999999996,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 669170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 670170.0999999996,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 671170.4000000004,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 672170.5999999996,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 673170.4000000004,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 674170.5999999996,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 675170.7999999998,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 676169.7999999998,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 677170.5999999996,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 678170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 679170,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 680170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 681170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 682170.4000000004,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 683170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 684170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 685170.5999999996,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 686170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 687170.2999999998,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 688170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 689170.0999999996,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 690170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 691170.5999999996,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 692170,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 693170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 694170.4000000004,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 695170.5999999996,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 696170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 697170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 698170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 699170.4000000004,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 700170.4000000004,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 701170,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 702170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 703170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 704170.4000000004,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 705170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 706170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 707170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 708169.9000000004,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 709170.5,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 710170.5999999996,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 711169.7999999998,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 712169.9000000004,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  },
+  {
+    "event": "HEARTBEAT",
+    "ts": 713169.7999999998,
+    "currentTime": 596.458332,
+    "paused": true,
+    "ended": true,
+    "bufferLevel": 0
+  }
+]
