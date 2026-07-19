@@ -374,6 +374,8 @@ def normalize_snapshot(state: ConnectionState, info: TcpInfo, cc: str, poll_inte
         "packets_out": int(info.tcpi_unacked),
         "retransmissions_delta": retrans_delta,
         "retransmission_rate": retransmission_rate,
+        # TCP retransmissions are used as the observable packet-loss proxy.
+        "packet_loss_rate": retransmission_rate,
         "rto_events_delta": int(info.tcpi_retransmits),
         "delivery_rate_bps": max(0, delivery_rate_bps),
     }

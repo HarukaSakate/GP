@@ -53,6 +53,7 @@
   "packets_out": 20,
   "retransmissions_delta": 1,
   "retransmission_rate": 0.018,
+  "packet_loss_rate": 0.018,
   "rto_events_delta": 0,
   "delivery_rate_bps": 1450000
 }
@@ -71,6 +72,7 @@
 | `rtt_min_us` | integer | minimum RTT in microseconds |
 | `retransmissions_delta` | integer | retransmissions since previous sample |
 | `retransmission_rate` | number | optional normalized loss signal |
+| `packet_loss_rate` | number | estimated packet-loss ratio (TCP retransmission proxy) |
 | `delivery_rate_bps` | integer | delivery rate in bits per second |
 
 ## Optional fields
@@ -89,6 +91,7 @@
 - `rtt_us` and `rtt_min_us` must be positive integers
 - `retransmissions_delta` must be reset to `0` on counter wrap or socket change
 - `delivery_rate_bps` should be `0` if unavailable, not omitted
+- `packet_loss_rate` is derived from retransmissions and is not a direct physical-link loss measurement
 - `cc` must be lower-case
 - `session_id` must be the identifier received in `hello`, if known
 

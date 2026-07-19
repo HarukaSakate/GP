@@ -150,6 +150,31 @@
     .tcp-warn {
       color: var(--warn);
     }
+
+    .signal-options {
+      grid-column: 1 / -1;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.65);
+    }
+
+    .signal-options legend {
+      padding: 0 6px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .signal-option-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 20px;
+    }
+
+    .signal-option-list label {
+      flex-direction: row;
+      align-items: center;
+      gap: 6px;
+    }
   </style>
 </head>
 
@@ -193,6 +218,15 @@
         TCP Signal Max Age (ms)
         <input id="tcpMaxAgeMs" type="number" min="100" step="100" value="1500">
       </label>
+
+      <fieldset class="signal-options">
+        <legend>TCP signals used by ABR guardrail</legend>
+        <div class="signal-option-list">
+          <label><input id="useRttSignal" type="checkbox" checked> RTT / RTTx</label>
+          <label><input id="useCwndSignal" type="checkbox"> CWND</label>
+          <label><input id="useLossSignal" type="checkbox" checked> Packet loss / RETX</label>
+        </div>
+      </fieldset>
     </div>
 
     <div class="actions">
@@ -220,6 +254,26 @@
         <span class="v" id="tcpSignalValue">No Signal</span>
       </div>
       <div class="metric">
+        <span class="k">TCP Age</span>
+        <span class="v" id="tcpAgeValue">-</span>
+      </div>
+      <div class="metric">
+        <span class="k">RTT / RTTx</span>
+        <span class="v" id="tcpRttValue">-</span>
+      </div>
+      <div class="metric">
+        <span class="k">CWND</span>
+        <span class="v" id="tcpCwndValue">-</span>
+      </div>
+      <div class="metric">
+        <span class="k">Packet Loss (estimated)</span>
+        <span class="v" id="tcpLossValue">-</span>
+      </div>
+      <div class="metric">
+        <span class="k">RETX</span>
+        <span class="v" id="tcpRetxValue">-</span>
+      </div>
+      <div class="metric">
         <span class="k">Guardrail</span>
         <span class="v" id="guardrailValue">Inactive</span>
       </div>
@@ -239,10 +293,18 @@
     const sessionIdInput = document.getElementById("sessionId");
     const tcpAwareModeSelect = document.getElementById("tcpAwareMode");
     const tcpMaxAgeMsInput = document.getElementById("tcpMaxAgeMs");
+    const useRttSignalInput = document.getElementById("useRttSignal");
+    const useCwndSignalInput = document.getElementById("useCwndSignal");
+    const useLossSignalInput = document.getElementById("useLossSignal");
     const qualityValue = document.getElementById("qualityValue");
     const bitrateValue = document.getElementById("bitrateValue");
     const bufferValue = document.getElementById("bufferValue");
     const tcpSignalValue = document.getElementById("tcpSignalValue");
+    const tcpAgeValue = document.getElementById("tcpAgeValue");
+    const tcpRttValue = document.getElementById("tcpRttValue");
+    const tcpCwndValue = document.getElementById("tcpCwndValue");
+    const tcpLossValue = document.getElementById("tcpLossValue");
+    const tcpRetxValue = document.getElementById("tcpRetxValue");
     const guardrailValue = document.getElementById("guardrailValue");
 
     const logs = [];
@@ -266,6 +328,7 @@
     let lastVideoFragmentStartedAt = 0;
     let lastSchedulerRecoveryAt = 0;
     let sessionId = "";
+    let peakCwndPackets = 0;
 
     function createEmptyBitrateInfo() {
       return {
@@ -435,21 +498,46 @@
       if (!tcpMetrics) {
         tcpSignalValue.textContent = "No Signal";
         tcpSignalValue.className = "v";
+        tcpAgeValue.textContent = latestTcpMetrics
+          ? (now() - latestTcpReceivedAt).toFixed(0) + " ms (stale)"
+          : "-";
+        tcpRttValue.textContent = "-";
+        tcpCwndValue.textContent = "-";
+        tcpLossValue.textContent = "-";
+        tcpRetxValue.textContent = "-";
         return;
       }
 
       const rttInflation = getRttInflation(tcpMetrics);
       const retransDelta = Number(tcpMetrics.retransmissions_delta ?? 0);
-      tcpSignalValue.textContent =
-        "age=" + tcpMetrics.ageMs.toFixed(0) +
-        "ms rttx=" + rttInflation.toFixed(2) +
-        " retx=" + retransDelta;
+      const rttUs = Number(tcpMetrics.rtt_us ?? 0);
+      const cwndPackets = Number(tcpMetrics.cwnd_packets ?? 0);
+      const cwndBytes = Number(tcpMetrics.cwnd_bytes ?? 0);
+      const packetLossRate = getPacketLossRate(tcpMetrics);
+      const congestion = evaluateTcpCongestion(tcpMetrics);
+      tcpSignalValue.textContent = congestion.congested
+        ? "Congested: " + congestion.reasons.join(", ")
+        : "Healthy";
       tcpSignalValue.className =
-        "v " + (isCongested(tcpMetrics) ? "tcp-warn" : "tcp-ok");
+        "v " + (congestion.congested ? "tcp-warn" : "tcp-ok");
+      tcpAgeValue.textContent = tcpMetrics.ageMs.toFixed(0) + " ms";
+      tcpRttValue.textContent =
+        (rttUs > 0 ? (rttUs / 1000).toFixed(2) + " ms" : "-") +
+        " / " + rttInflation.toFixed(2) + "x";
+      tcpCwndValue.textContent =
+        (cwndPackets > 0 ? cwndPackets.toFixed(0) + " packets" : "-") +
+        (cwndBytes > 0 ? " (" + (cwndBytes / 1024).toFixed(1) + " KiB)" : "");
+      tcpLossValue.textContent = (packetLossRate * 100).toFixed(2) + "%";
+      tcpRetxValue.textContent = retransDelta.toFixed(0) + " packets/sample";
     }
 
     function updateGuardrailSignalStatus(tcpMetrics) {
-      if (!player || tcpAwareModeSelect.value === "off") return;
+      if (!player) return;
+
+      if (tcpAwareModeSelect.value === "off") {
+        guardrailValue.textContent = "Observation only";
+        return;
+      }
 
       if (!tcpMetrics) {
         guardrailValue.textContent = "No fresh TCP signal";
@@ -483,6 +571,7 @@
       lastGuardrailActionTs = 0;
       latestTcpMetrics = null;
       latestTcpReceivedAt = 0;
+      peakCwndPackets = 0;
       lastVideoFragmentStartedAt = 0;
       lastSchedulerRecoveryAt = 0;
       guardrailValue.textContent = "Inactive";
@@ -500,11 +589,6 @@
 
     function connectTcpSignalChannel() {
       closeTcpSocket();
-
-      if (tcpAwareModeSelect.value === "off") {
-        setStatus("TCP-aware mode is off", "warn");
-        return;
-      }
 
       const wsUrl = tcpWsUrlInput.value.trim() || getDefaultTcpWsUrl();
       tcpWsUrlInput.value = wsUrl;
@@ -528,7 +612,12 @@
           wsUrl,
           hello
         });
-        setStatus("TCP signal connected", "ok");
+        setStatus(
+          tcpAwareModeSelect.value === "off"
+            ? "TCP signal connected (observation only)"
+            : "TCP signal connected",
+          "ok"
+        );
       };
 
       tcpSocket.onmessage = function (event) {
@@ -554,6 +643,10 @@
 
         latestTcpMetrics = message;
         latestTcpReceivedAt = now();
+        const cwndPackets = Number(message.cwnd_packets ?? 0);
+        if (Number.isFinite(cwndPackets) && cwndPackets > 0) {
+          peakCwndPackets = Math.max(peakCwndPackets, cwndPackets);
+        }
         updateMetricCards();
 
         addLog({
@@ -638,30 +731,65 @@
       return info.bitrate;
     }
 
-    function isCongested(tcpMetrics) {
+    function getPacketLossRate(tcpMetrics) {
+      const value = Number(
+        tcpMetrics.packet_loss_rate ?? tcpMetrics.retransmission_rate ?? 0
+      );
+      return Number.isFinite(value) ? Math.max(0, value) : 0;
+    }
+
+    function getSelectedTcpSignals() {
+      return {
+        rtt: useRttSignalInput.checked,
+        cwnd: useCwndSignalInput.checked,
+        loss: useLossSignalInput.checked
+      };
+    }
+
+    function evaluateTcpCongestion(tcpMetrics) {
+      const selected = getSelectedTcpSignals();
       const cc = String(tcpMetrics.cc ?? "").toLowerCase();
       const rttInflation = getRttInflation(tcpMetrics);
       const retransDelta = Number(tcpMetrics.retransmissions_delta ?? 0);
-      const retransRate = Number(tcpMetrics.retransmission_rate ?? 0);
+      const packetLossRate = getPacketLossRate(tcpMetrics);
       const deliveryRateBps = Number(tcpMetrics.delivery_rate_bps ?? 0);
       const currentBitrateBps = getCurrentBitrateBps();
+      const cwndPackets = Number(tcpMetrics.cwnd_packets ?? 0);
+      const packetsOut = Number(tcpMetrics.packets_out ?? 0);
+      const reasons = [];
 
-      if (cc === "bbr") {
-        return (
-          (rttInflation > 1.4 && retransDelta > 0) ||
-          (rttInflation > 1.4 &&
-            Number.isFinite(currentBitrateBps) &&
-            deliveryRateBps > 0 &&
-            deliveryRateBps < currentBitrateBps * 1.15) ||
-          retransRate > 0.02
-        );
+      if (selected.rtt) {
+        const bbrRatePressure =
+          cc === "bbr" &&
+          Number.isFinite(currentBitrateBps) &&
+          deliveryRateBps > 0 &&
+          deliveryRateBps < currentBitrateBps * 1.15;
+        if (
+          rttInflation > (cc === "bbr" ? 1.4 : 1.5) &&
+          (cc !== "bbr" || bbrRatePressure)
+        ) {
+          reasons.push("RTT");
+        }
       }
 
-      return (
-        rttInflation > 1.5 ||
-        retransDelta > 0 ||
-        retransRate > 0.02
-      );
+      if (selected.loss && (retransDelta > 0 || packetLossRate > 0.02)) {
+        reasons.push("LOSS/RETX");
+      }
+
+      // A low window alone is ambiguous. Treat it as pressure only when the
+      // flight size is also occupying at least 80% of that window.
+      if (
+        selected.cwnd && peakCwndPackets > 0 && cwndPackets > 0 &&
+        cwndPackets <= peakCwndPackets * 0.6 && packetsOut >= cwndPackets * 0.8
+      ) {
+        reasons.push("CWND");
+      }
+
+      return { congested: reasons.length > 0, reasons, selected };
+    }
+
+    function isCongested(tcpMetrics) {
+      return evaluateTcpCongestion(tcpMetrics).congested;
     }
 
     function maybeApplyTcpGuardrail(sourceEvent) {
@@ -825,6 +953,7 @@
         abr,
         mpd: mpdUrl,
         tcpAwareMode: tcpAwareModeSelect.value,
+        tcpSignalsUsed: getSelectedTcpSignals(),
         tcpWsUrl: tcpWsUrlInput.value.trim()
       });
 
@@ -1066,4 +1195,3 @@
   </script>
 </body>
 </html>
-

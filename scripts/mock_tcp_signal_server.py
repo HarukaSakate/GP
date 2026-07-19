@@ -200,6 +200,7 @@ def build_metrics(
         "packets_out": packets_out,
         "retransmissions_delta": retrans_delta,
         "retransmission_rate": retrans_rate,
+        "packet_loss_rate": retrans_rate,
         "rto_events_delta": 0,
         "delivery_rate_bps": delivery_rate,
     }
