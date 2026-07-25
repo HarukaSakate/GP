@@ -10,9 +10,6 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 RESULTS = ROOT / "results_NoTC"
-DATA_DIR = RESULTS / "CUBIC" if (RESULTS / "CUBIC").is_dir() else RESULTS
-CSV_PATH = DATA_DIR / "analysis_summary.csv"
-SVG_PATH = DATA_DIR / "analysis_comparison.svg"
 
 
 def number(value):
@@ -63,6 +60,8 @@ def summarize(path):
         record.get("tcpMetrics") or {} for record in records
         if record.get("event") == "TCP_SIGNAL_UPDATE"
     ]
+    cc_values = [str(item.get("cc", "")).upper() for item in metrics if item.get("cc")]
+    cc = Counter(cc_values).most_common(1)[0][0] if cc_values else path.parent.name.upper()
     rtt_ms = [number(item.get("rtt_us")) / 1000 for item in metrics if number(item.get("rtt_us")) is not None]
     rttx = []
     for item in metrics:
@@ -83,6 +82,7 @@ def summarize(path):
     mean_bitrate = average(bitrates)
     return {
         "file": path.name,
+        "cc": cc,
         "abr": abr,
         "signals": signal_key,
         "condition": abr + " / " + ("+".join(signals) if signals else "None"),
@@ -124,7 +124,7 @@ def summarize(path):
 
 
 FIELDS = [
-    "file", "abr", "signals", "condition", "completed", "playback_sec", "wall_play_sec",
+    "file", "cc", "abr", "signals", "condition", "completed", "playback_sec", "wall_play_sec",
     "startup_sec", "excess_sec", "stall_sec", "stall_count", "switch_count", "avg_quality",
     "avg_bitrate_mbps", "q0_pct", "q1_pct", "guardrail_count", "tcp_samples",
     "rtt_mean_ms", "rtt_p95_ms", "rttx_mean", "rttx_p95", "rtt_over_1_5_pct",
@@ -133,7 +133,7 @@ FIELDS = [
 ]
 
 
-def write_svg(rows):
+def write_svg(rows, svg_path, title):
     width, height, left, top = 1500, 1085, 90, 55
     panels = [
         ("Playback excess time (s)", "excess_sec", "#d07a1f"),
@@ -148,7 +148,7 @@ def write_svg(rows):
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}">',
         '<style>text{font-family:Arial,sans-serif;fill:#222}.title{font-size:24px;font-weight:bold}.axis{font-size:12px}.label{font-size:11px}.grid{stroke:#ddd}</style>',
         '<rect width="100%" height="100%" fill="#fffdf7"/>',
-        '<text x="30" y="32" class="title">results_NoTC: TCP signal condition comparison</text>',
+        f'<text x="30" y="32" class="title">{title}: TCP signal condition comparison</text>',
     ]
     for panel_index, (title, key, color) in enumerate(panels):
         y0 = top + panel_index * panel_height
@@ -172,19 +172,40 @@ def write_svg(rows):
         parts.append(f'<text x="{x:.1f}" y="{label_y}" transform="rotate(55 {x:.1f} {label_y})" class="label">{label}</text>')
     parts.append('<text x="30" y="1070" class="axis">TP = Throughput. One run per condition; descriptive comparison only.</text>')
     parts.append("</svg>")
-    SVG_PATH.write_text("\n".join(parts))
+    svg_path.write_text("\n".join(parts))
 
 
-def main():
-    rows = [summarize(path) for path in sorted(DATA_DIR.glob("dash_qoe_log_*.json"))]
-    rows.sort(key=lambda row: (row["abr"] == "BOLA", row["signals"].count("+"), row["signals"]))
-    with CSV_PATH.open("w", newline="") as handle:
+def write_csv(rows, csv_path):
+    with csv_path.open("w", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=FIELDS, lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
-    write_svg(rows)
-    print(f"Wrote {CSV_PATH}")
-    print(f"Wrote {SVG_PATH}")
+
+
+def main():
+    data_dirs = [
+        path for path in sorted(RESULTS.iterdir())
+        if path.is_dir() and any(path.glob("dash_qoe_log_*.json"))
+    ]
+    if not data_dirs and any(RESULTS.glob("dash_qoe_log_*.json")):
+        data_dirs = [RESULTS]
+
+    all_rows = []
+    for data_dir in data_dirs:
+        rows = [summarize(path) for path in sorted(data_dir.glob("dash_qoe_log_*.json"))]
+        rows.sort(key=lambda row: (row["abr"] == "BOLA", row["signals"].count("+"), row["signals"]))
+        csv_path = data_dir / "analysis_summary.csv"
+        svg_path = data_dir / "analysis_comparison.svg"
+        write_csv(rows, csv_path)
+        write_svg(rows, svg_path, data_dir.name)
+        all_rows.extend(rows)
+        print(f"Wrote {csv_path}")
+        print(f"Wrote {svg_path}")
+
+    all_rows.sort(key=lambda row: (row["cc"], row["abr"] == "BOLA", row["signals"].count("+"), row["signals"]))
+    combined_path = RESULTS / "analysis_summary_all.csv"
+    write_csv(all_rows, combined_path)
+    print(f"Wrote {combined_path}")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,237 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1085">
+<style>text{font-family:Arial,sans-serif;fill:#222}.title{font-size:24px;font-weight:bold}.axis{font-size:12px}.label{font-size:11px}.grid{stroke:#ddd}</style>
+<rect width="100%" height="100%" fill="#fffdf7"/>
+<text x="30" y="32" class="title">BBR: TCP signal condition comparison</text>
+<text x="10" y="73" class="axis">Playback excess time (s)</text>
+<line x1="90" y1="185.0" x2="1475" y2="185.0" class="grid"/>
+<text x="82" y="189.0" text-anchor="end" class="axis">0.00</text>
+<line x1="90" y1="157.5" x2="1475" y2="157.5" class="grid"/>
+<text x="82" y="161.5" text-anchor="end" class="axis">2.76</text>
+<line x1="90" y1="130.0" x2="1475" y2="130.0" class="grid"/>
+<text x="82" y="134.0" text-anchor="end" class="axis">5.52</text>
+<line x1="90" y1="102.5" x2="1475" y2="102.5" class="grid"/>
+<text x="82" y="106.5" text-anchor="end" class="axis">8.29</text>
+<line x1="90" y1="75.0" x2="1475" y2="75.0" class="grid"/>
+<text x="82" y="79.0" text-anchor="end" class="axis">11.05</text>
+<rect x="103.8" y="101.7" width="58.9" height="83.3" fill="#d07a1f"/>
+<text x="133.3" y="98.7" text-anchor="middle" class="label">8.37</text>
+<rect x="190.4" y="82.7" width="58.9" height="102.3" fill="#d07a1f"/>
+<text x="219.8" y="79.7" text-anchor="middle" class="label">10.28</text>
+<rect x="277.0" y="110.3" width="58.9" height="74.7" fill="#d07a1f"/>
+<text x="306.4" y="107.3" text-anchor="middle" class="label">7.50</text>
+<rect x="363.5" y="75.0" width="58.9" height="110.0" fill="#d07a1f"/>
+<text x="393.0" y="72.0" text-anchor="middle" class="label">11.05</text>
+<rect x="450.1" y="79.5" width="58.9" height="105.5" fill="#d07a1f"/>
+<text x="479.5" y="76.5" text-anchor="middle" class="label">10.60</text>
+<rect x="536.7" y="76.1" width="58.9" height="108.9" fill="#d07a1f"/>
+<text x="566.1" y="73.1" text-anchor="middle" class="label">10.94</text>
+<rect x="623.2" y="84.4" width="58.9" height="100.6" fill="#d07a1f"/>
+<text x="652.7" y="81.4" text-anchor="middle" class="label">10.11</text>
+<rect x="709.8" y="144.4" width="58.9" height="40.6" fill="#d07a1f"/>
+<text x="739.2" y="141.4" text-anchor="middle" class="label">4.07</text>
+<rect x="796.4" y="107.9" width="58.9" height="77.1" fill="#d07a1f"/>
+<text x="825.8" y="104.9" text-anchor="middle" class="label">7.75</text>
+<rect x="882.9" y="94.2" width="58.9" height="90.8" fill="#d07a1f"/>
+<text x="912.3" y="91.2" text-anchor="middle" class="label">9.12</text>
+<rect x="969.5" y="105.9" width="58.9" height="79.1" fill="#d07a1f"/>
+<text x="998.9" y="102.9" text-anchor="middle" class="label">7.94</text>
+<rect x="1056.0" y="114.8" width="58.9" height="70.2" fill="#d07a1f"/>
+<text x="1085.5" y="111.8" text-anchor="middle" class="label">7.05</text>
+<rect x="1142.6" y="110.2" width="58.9" height="74.8" fill="#d07a1f"/>
+<text x="1172.0" y="107.2" text-anchor="middle" class="label">7.52</text>
+<rect x="1229.2" y="99.6" width="58.9" height="85.4" fill="#d07a1f"/>
+<text x="1258.6" y="96.6" text-anchor="middle" class="label">8.58</text>
+<rect x="1315.7" y="77.6" width="58.9" height="107.4" fill="#d07a1f"/>
+<text x="1345.2" y="74.6" text-anchor="middle" class="label">10.79</text>
+<rect x="1402.3" y="78.6" width="58.9" height="106.4" fill="#d07a1f"/>
+<text x="1431.7" y="75.6" text-anchor="middle" class="label">10.69</text>
+<text x="10" y="238" class="axis">Stall time (s)</text>
+<line x1="90" y1="350.0" x2="1475" y2="350.0" class="grid"/>
+<text x="82" y="354.0" text-anchor="end" class="axis">0.00</text>
+<line x1="90" y1="322.5" x2="1475" y2="322.5" class="grid"/>
+<text x="82" y="326.5" text-anchor="end" class="axis">2.12</text>
+<line x1="90" y1="295.0" x2="1475" y2="295.0" class="grid"/>
+<text x="82" y="299.0" text-anchor="end" class="axis">4.23</text>
+<line x1="90" y1="267.5" x2="1475" y2="267.5" class="grid"/>
+<text x="82" y="271.5" text-anchor="end" class="axis">6.35</text>
+<line x1="90" y1="240.0" x2="1475" y2="240.0" class="grid"/>
+<text x="82" y="244.0" text-anchor="end" class="axis">8.46</text>
+<rect x="103.8" y="284.9" width="58.9" height="65.1" fill="#a53f2b"/>
+<text x="133.3" y="281.9" text-anchor="middle" class="label">5.01</text>
+<rect x="190.4" y="256.3" width="58.9" height="93.7" fill="#a53f2b"/>
+<text x="219.8" y="253.3" text-anchor="middle" class="label">7.21</text>
+<rect x="277.0" y="306.1" width="58.9" height="43.9" fill="#a53f2b"/>
+<text x="306.4" y="303.1" text-anchor="middle" class="label">3.38</text>
+<rect x="363.5" y="249.3" width="58.9" height="100.7" fill="#a53f2b"/>
+<text x="393.0" y="246.3" text-anchor="middle" class="label">7.75</text>
+<rect x="450.1" y="257.0" width="58.9" height="93.0" fill="#a53f2b"/>
+<text x="479.5" y="254.0" text-anchor="middle" class="label">7.15</text>
+<rect x="536.7" y="253.9" width="58.9" height="96.1" fill="#a53f2b"/>
+<text x="566.1" y="250.9" text-anchor="middle" class="label">7.39</text>
+<rect x="623.2" y="240.0" width="58.9" height="110.0" fill="#a53f2b"/>
+<text x="652.7" y="237.0" text-anchor="middle" class="label">8.46</text>
+<rect x="709.8" y="316.9" width="58.9" height="33.1" fill="#a53f2b"/>
+<text x="739.2" y="313.9" text-anchor="middle" class="label">2.55</text>
+<rect x="796.4" y="280.5" width="58.9" height="69.5" fill="#a53f2b"/>
+<text x="825.8" y="277.5" text-anchor="middle" class="label">5.35</text>
+<rect x="882.9" y="249.0" width="58.9" height="101.0" fill="#a53f2b"/>
+<text x="912.3" y="246.0" text-anchor="middle" class="label">7.77</text>
+<rect x="969.5" y="266.1" width="58.9" height="83.9" fill="#a53f2b"/>
+<text x="998.9" y="263.1" text-anchor="middle" class="label">6.45</text>
+<rect x="1056.0" y="296.6" width="58.9" height="53.4" fill="#a53f2b"/>
+<text x="1085.5" y="293.6" text-anchor="middle" class="label">4.10</text>
+<rect x="1142.6" y="304.2" width="58.9" height="45.8" fill="#a53f2b"/>
+<text x="1172.0" y="301.2" text-anchor="middle" class="label">3.53</text>
+<rect x="1229.2" y="270.2" width="58.9" height="79.8" fill="#a53f2b"/>
+<text x="1258.6" y="267.2" text-anchor="middle" class="label">6.14</text>
+<rect x="1315.7" y="260.1" width="58.9" height="89.9" fill="#a53f2b"/>
+<text x="1345.2" y="257.1" text-anchor="middle" class="label">6.91</text>
+<rect x="1402.3" y="251.2" width="58.9" height="98.8" fill="#a53f2b"/>
+<text x="1431.7" y="248.2" text-anchor="middle" class="label">7.60</text>
+<text x="10" y="403" class="axis">Average bitrate (Mbps)</text>
+<line x1="90" y1="515.0" x2="1475" y2="515.0" class="grid"/>
+<text x="82" y="519.0" text-anchor="end" class="axis">0.00</text>
+<line x1="90" y1="487.5" x2="1475" y2="487.5" class="grid"/>
+<text x="82" y="491.5" text-anchor="end" class="axis">0.35</text>
+<line x1="90" y1="460.0" x2="1475" y2="460.0" class="grid"/>
+<text x="82" y="464.0" text-anchor="end" class="axis">0.70</text>
+<line x1="90" y1="432.5" x2="1475" y2="432.5" class="grid"/>
+<text x="82" y="436.5" text-anchor="end" class="axis">1.05</text>
+<line x1="90" y1="405.0" x2="1475" y2="405.0" class="grid"/>
+<text x="82" y="409.0" text-anchor="end" class="axis">1.41</text>
+<rect x="103.8" y="407.4" width="58.9" height="107.6" fill="#2d6a8a"/>
+<text x="133.3" y="404.4" text-anchor="middle" class="label">1.37</text>
+<rect x="190.4" y="408.0" width="58.9" height="107.0" fill="#2d6a8a"/>
+<text x="219.8" y="405.0" text-anchor="middle" class="label">1.37</text>
+<rect x="277.0" y="407.4" width="58.9" height="107.6" fill="#2d6a8a"/>
+<text x="306.4" y="404.4" text-anchor="middle" class="label">1.37</text>
+<rect x="363.5" y="407.7" width="58.9" height="107.3" fill="#2d6a8a"/>
+<text x="393.0" y="404.7" text-anchor="middle" class="label">1.37</text>
+<rect x="450.1" y="408.0" width="58.9" height="107.0" fill="#2d6a8a"/>
+<text x="479.5" y="405.0" text-anchor="middle" class="label">1.37</text>
+<rect x="536.7" y="408.0" width="58.9" height="107.0" fill="#2d6a8a"/>
+<text x="566.1" y="405.0" text-anchor="middle" class="label">1.37</text>
+<rect x="623.2" y="407.6" width="58.9" height="107.4" fill="#2d6a8a"/>
+<text x="652.7" y="404.6" text-anchor="middle" class="label">1.37</text>
+<rect x="709.8" y="406.6" width="58.9" height="108.4" fill="#2d6a8a"/>
+<text x="739.2" y="403.6" text-anchor="middle" class="label">1.39</text>
+<rect x="796.4" y="407.6" width="58.9" height="107.4" fill="#2d6a8a"/>
+<text x="825.8" y="404.6" text-anchor="middle" class="label">1.37</text>
+<rect x="882.9" y="407.6" width="58.9" height="107.4" fill="#2d6a8a"/>
+<text x="912.3" y="404.6" text-anchor="middle" class="label">1.37</text>
+<rect x="969.5" y="407.6" width="58.9" height="107.4" fill="#2d6a8a"/>
+<text x="998.9" y="404.6" text-anchor="middle" class="label">1.37</text>
+<rect x="1056.0" y="405.0" width="58.9" height="110.0" fill="#2d6a8a"/>
+<text x="1085.5" y="402.0" text-anchor="middle" class="label">1.41</text>
+<rect x="1142.6" y="407.6" width="58.9" height="107.4" fill="#2d6a8a"/>
+<text x="1172.0" y="404.6" text-anchor="middle" class="label">1.37</text>
+<rect x="1229.2" y="407.6" width="58.9" height="107.4" fill="#2d6a8a"/>
+<text x="1258.6" y="404.6" text-anchor="middle" class="label">1.37</text>
+<rect x="1315.7" y="408.0" width="58.9" height="107.0" fill="#2d6a8a"/>
+<text x="1345.2" y="405.0" text-anchor="middle" class="label">1.37</text>
+<rect x="1402.3" y="408.0" width="58.9" height="107.0" fill="#2d6a8a"/>
+<text x="1431.7" y="405.0" text-anchor="middle" class="label">1.37</text>
+<text x="10" y="568" class="axis">Quality switches</text>
+<line x1="90" y1="680.0" x2="1475" y2="680.0" class="grid"/>
+<text x="82" y="684.0" text-anchor="end" class="axis">0.00</text>
+<line x1="90" y1="652.5" x2="1475" y2="652.5" class="grid"/>
+<text x="82" y="656.5" text-anchor="end" class="axis">1.25</text>
+<line x1="90" y1="625.0" x2="1475" y2="625.0" class="grid"/>
+<text x="82" y="629.0" text-anchor="end" class="axis">2.50</text>
+<line x1="90" y1="597.5" x2="1475" y2="597.5" class="grid"/>
+<text x="82" y="601.5" text-anchor="end" class="axis">3.75</text>
+<line x1="90" y1="570.0" x2="1475" y2="570.0" class="grid"/>
+<text x="82" y="574.0" text-anchor="end" class="axis">5.00</text>
+<rect x="103.8" y="570.0" width="58.9" height="110.0" fill="#7768ae"/>
+<text x="133.3" y="567.0" text-anchor="middle" class="label">5.00</text>
+<rect x="190.4" y="570.0" width="58.9" height="110.0" fill="#7768ae"/>
+<text x="219.8" y="567.0" text-anchor="middle" class="label">5.00</text>
+<rect x="277.0" y="570.0" width="58.9" height="110.0" fill="#7768ae"/>
+<text x="306.4" y="567.0" text-anchor="middle" class="label">5.00</text>
+<rect x="363.5" y="570.0" width="58.9" height="110.0" fill="#7768ae"/>
+<text x="393.0" y="567.0" text-anchor="middle" class="label">5.00</text>
+<rect x="450.1" y="570.0" width="58.9" height="110.0" fill="#7768ae"/>
+<text x="479.5" y="567.0" text-anchor="middle" class="label">5.00</text>
+<rect x="536.7" y="570.0" width="58.9" height="110.0" fill="#7768ae"/>
+<text x="566.1" y="567.0" text-anchor="middle" class="label">5.00</text>
+<rect x="623.2" y="570.0" width="58.9" height="110.0" fill="#7768ae"/>
+<text x="652.7" y="567.0" text-anchor="middle" class="label">5.00</text>
+<rect x="709.8" y="614.0" width="58.9" height="66.0" fill="#7768ae"/>
+<text x="739.2" y="611.0" text-anchor="middle" class="label">3.00</text>
+<rect x="796.4" y="570.0" width="58.9" height="110.0" fill="#7768ae"/>
+<text x="825.8" y="567.0" text-anchor="middle" class="label">5.00</text>
+<rect x="882.9" y="570.0" width="58.9" height="110.0" fill="#7768ae"/>
+<text x="912.3" y="567.0" text-anchor="middle" class="label">5.00</text>
+<rect x="969.5" y="570.0" width="58.9" height="110.0" fill="#7768ae"/>
+<text x="998.9" y="567.0" text-anchor="middle" class="label">5.00</text>
+<rect x="1056.0" y="658.0" width="58.9" height="22.0" fill="#7768ae"/>
+<text x="1085.5" y="655.0" text-anchor="middle" class="label">1.00</text>
+<rect x="1142.6" y="570.0" width="58.9" height="110.0" fill="#7768ae"/>
+<text x="1172.0" y="567.0" text-anchor="middle" class="label">5.00</text>
+<rect x="1229.2" y="570.0" width="58.9" height="110.0" fill="#7768ae"/>
+<text x="1258.6" y="567.0" text-anchor="middle" class="label">5.00</text>
+<rect x="1315.7" y="570.0" width="58.9" height="110.0" fill="#7768ae"/>
+<text x="1345.2" y="567.0" text-anchor="middle" class="label">5.00</text>
+<rect x="1402.3" y="570.0" width="58.9" height="110.0" fill="#7768ae"/>
+<text x="1431.7" y="567.0" text-anchor="middle" class="label">5.00</text>
+<text x="10" y="733" class="axis">TCP guardrail actions</text>
+<line x1="90" y1="845.0" x2="1475" y2="845.0" class="grid"/>
+<text x="82" y="849.0" text-anchor="end" class="axis">0.00</text>
+<line x1="90" y1="817.5" x2="1475" y2="817.5" class="grid"/>
+<text x="82" y="821.5" text-anchor="end" class="axis">0.25</text>
+<line x1="90" y1="790.0" x2="1475" y2="790.0" class="grid"/>
+<text x="82" y="794.0" text-anchor="end" class="axis">0.50</text>
+<line x1="90" y1="762.5" x2="1475" y2="762.5" class="grid"/>
+<text x="82" y="766.5" text-anchor="end" class="axis">0.75</text>
+<line x1="90" y1="735.0" x2="1475" y2="735.0" class="grid"/>
+<text x="82" y="739.0" text-anchor="end" class="axis">1.00</text>
+<rect x="103.8" y="845.0" width="58.9" height="0.0" fill="#34785c"/>
+<text x="133.3" y="842.0" text-anchor="middle" class="label">0.00</text>
+<rect x="190.4" y="845.0" width="58.9" height="0.0" fill="#34785c"/>
+<text x="219.8" y="842.0" text-anchor="middle" class="label">0.00</text>
+<rect x="277.0" y="845.0" width="58.9" height="0.0" fill="#34785c"/>
+<text x="306.4" y="842.0" text-anchor="middle" class="label">0.00</text>
+<rect x="363.5" y="845.0" width="58.9" height="0.0" fill="#34785c"/>
+<text x="393.0" y="842.0" text-anchor="middle" class="label">0.00</text>
+<rect x="450.1" y="845.0" width="58.9" height="0.0" fill="#34785c"/>
+<text x="479.5" y="842.0" text-anchor="middle" class="label">0.00</text>
+<rect x="536.7" y="845.0" width="58.9" height="0.0" fill="#34785c"/>
+<text x="566.1" y="842.0" text-anchor="middle" class="label">0.00</text>
+<rect x="623.2" y="845.0" width="58.9" height="0.0" fill="#34785c"/>
+<text x="652.7" y="842.0" text-anchor="middle" class="label">0.00</text>
+<rect x="709.8" y="845.0" width="58.9" height="0.0" fill="#34785c"/>
+<text x="739.2" y="842.0" text-anchor="middle" class="label">0.00</text>
+<rect x="796.4" y="845.0" width="58.9" height="0.0" fill="#34785c"/>
+<text x="825.8" y="842.0" text-anchor="middle" class="label">0.00</text>
+<rect x="882.9" y="845.0" width="58.9" height="0.0" fill="#34785c"/>
+<text x="912.3" y="842.0" text-anchor="middle" class="label">0.00</text>
+<rect x="969.5" y="845.0" width="58.9" height="0.0" fill="#34785c"/>
+<text x="998.9" y="842.0" text-anchor="middle" class="label">0.00</text>
+<rect x="1056.0" y="845.0" width="58.9" height="0.0" fill="#34785c"/>
+<text x="1085.5" y="842.0" text-anchor="middle" class="label">0.00</text>
+<rect x="1142.6" y="845.0" width="58.9" height="0.0" fill="#34785c"/>
+<text x="1172.0" y="842.0" text-anchor="middle" class="label">0.00</text>
+<rect x="1229.2" y="845.0" width="58.9" height="0.0" fill="#34785c"/>
+<text x="1258.6" y="842.0" text-anchor="middle" class="label">0.00</text>
+<rect x="1315.7" y="845.0" width="58.9" height="0.0" fill="#34785c"/>
+<text x="1345.2" y="842.0" text-anchor="middle" class="label">0.00</text>
+<rect x="1402.3" y="845.0" width="58.9" height="0.0" fill="#34785c"/>
+<text x="1431.7" y="842.0" text-anchor="middle" class="label">0.00</text>
+<text x="133.3" y="892" transform="rotate(55 133.3 892)" class="label">TP / CWND</text>
+<text x="219.8" y="892" transform="rotate(55 219.8 892)" class="label">TP / Loss</text>
+<text x="306.4" y="892" transform="rotate(55 306.4 892)" class="label">TP / None</text>
+<text x="393.0" y="892" transform="rotate(55 393.0 892)" class="label">TP / RTT</text>
+<text x="479.5" y="892" transform="rotate(55 479.5 892)" class="label">TP / CWND+Loss</text>
+<text x="566.1" y="892" transform="rotate(55 566.1 892)" class="label">TP / RTT+CWND</text>
+<text x="652.7" y="892" transform="rotate(55 652.7 892)" class="label">TP / RTT+Loss</text>
+<text x="739.2" y="892" transform="rotate(55 739.2 892)" class="label">TP / RTT+CWND+Loss</text>
+<text x="825.8" y="892" transform="rotate(55 825.8 892)" class="label">BOLA / CWND</text>
+<text x="912.3" y="892" transform="rotate(55 912.3 892)" class="label">BOLA / Loss</text>
+<text x="998.9" y="892" transform="rotate(55 998.9 892)" class="label">BOLA / None</text>
+<text x="1085.5" y="892" transform="rotate(55 1085.5 892)" class="label">BOLA / RTT</text>
+<text x="1172.0" y="892" transform="rotate(55 1172.0 892)" class="label">BOLA / CWND+Loss</text>
+<text x="1258.6" y="892" transform="rotate(55 1258.6 892)" class="label">BOLA / RTT+CWND</text>
+<text x="1345.2" y="892" transform="rotate(55 1345.2 892)" class="label">BOLA / RTT+Loss</text>
+<text x="1431.7" y="892" transform="rotate(55 1431.7 892)" class="label">BOLA / RTT+CWND+Loss</text>
+<text x="30" y="1070" class="axis">TP = Throughput. One run per condition; descriptive comparison only.</text>
+</svg>
