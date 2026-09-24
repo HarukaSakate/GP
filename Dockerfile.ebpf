@@ -1,0 +1,14 @@
+FROM debian:bookworm-slim
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    bpftool clang libbpf-dev linux-libc-dev make llvm python3 \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /src
+COPY ebpf/ ebpf/
+COPY scripts/ebpf_map_reader.py scripts/ebpf_map_reader.py
+COPY scripts/tcp_info_signal_server.py scripts/tcp_info_signal_server.py
+COPY tests/integration_probe.py tests/integration_probe.py
+COPY web/ web/
+
+CMD ["make", "-C", "ebpf", "verify"]

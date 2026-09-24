@@ -1,5 +1,8 @@
 # Root-owned host network configuration; not project source.
 netplan/
+__pycache__/
+*.py[cod]
+results/netem/
 
 # LFS uploads that repeatedly timed out; retained locally only.
 encoded/bbb_1080_gop.mp4

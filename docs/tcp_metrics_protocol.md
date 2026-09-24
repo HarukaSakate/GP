@@ -18,6 +18,7 @@
 {
   "type": "hello",
   "session_id": "exp-001",
+  "connection_id": "203.0.113.10:53124->8000:42",
   "client_ip": "203.178.128.214"
 }
 ```
@@ -55,7 +56,9 @@
   "retransmission_rate": 0.018,
   "packet_loss_rate": 0.018,
   "rto_events_delta": 0,
-  "delivery_rate_bps": 1450000
+  "delivery_rate_bps": 1450000,
+  "pacing_rate_bps": 1800000,
+  "app_limited": false
 }
 ```
 
@@ -66,6 +69,7 @@
 | `type` | string | must be `tcp_metrics` |
 | `version` | integer | protocol version |
 | `session_id` | string | playback session identifier |
+| `connection_id` | string | collector-local identifier for the observed TCP connection |
 | `timestamp_ms` | integer | producer-side unix epoch milliseconds |
 | `cc` | string | `cubic` or `bbr` |
 | `rtt_us` | integer | smoothed RTT in microseconds |
@@ -74,6 +78,8 @@
 | `retransmission_rate` | number | optional normalized loss signal |
 | `packet_loss_rate` | number | estimated packet-loss ratio (TCP retransmission proxy) |
 | `delivery_rate_bps` | integer | delivery rate in bits per second |
+| `pacing_rate_bps` | integer | socket pacing rate in bits per second |
+| `app_limited` | boolean | whether the delivery-rate sample is application limited |
 
 ## Optional fields
 
@@ -98,8 +104,10 @@
 ## Player-side interpretation
 
 - stale if local receive age exceeds `tcpMaxAgeMs`
-- congested for `cubic` if `rtt_us / rtt_min_us > 1.5` or `retransmissions_delta > 0`
-- congested for `bbr` if RTT inflation persists and delivery rate falls near current bitrate
+- RTT congestion requires a baseline of at least 1 ms, at least 5 ms absolute inflation,
+  the CC-specific ratio threshold, and three consecutive samples
+- BBR delivery-rate pressure is ignored while the connection is application limited
+- each TCP sample may trigger at most one quality change
 - missing or stale signal must fall back to baseline ABR without forcing a quality change
 
 ## Mapping from collectors
@@ -146,7 +154,7 @@ python3 scripts/tcp_info_signal_server.py \
   --ws-port 8765 \
   --serve-dir /home/l0gic/abr-pretest \
   --poll-ms 500 \
-  --cc cubic
+  --cc auto
 ```
 
 This scaffold is intended for:
@@ -160,3 +168,17 @@ Current limitations:
 - session mapping is `client_ip` based only
 - `delivery_rate_bps` falls back to an acked-bytes delta estimate when kernel delivery rate is unavailable
 - this is a Python scaffold, not a production collector
+
+## eBPF-backed WebSocket server
+
+```bash
+python3 scripts/tcp_info_signal_server.py \
+  --collector ebpf \
+  --ebpf-map /sys/fs/bpf/tcp_metrics \
+  --cc cubic
+```
+
+The server matches a WebSocket session to the newest eBPF entry whose remote IP
+equals the browser client and whose local port equals `--http-port`. This is safe
+for the current single-client experiment design; a production deployment still
+needs an explicit request/session identifier.
