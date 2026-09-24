@@ -8,6 +8,8 @@ This server has three roles:
 
 It is intentionally a scaffold. The session mapping is limited to
 "single client / single playback" by client IP, matching the current design.
+The emitted schema is collector-neutral so an eBPF collector can replace this
+implementation without changing the browser client.
 """
 
 from __future__ import annotations
@@ -21,11 +23,14 @@ import json
 import socket
 import socketserver
 import struct
+import subprocess
 import threading
 import time
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Dict, Optional
+
+from ebpf_map_reader import SnapshotNormalizer, read_pinned_map
 
 
 GUID = "258EAFA5-E914-47DA-95CA-C5AB0DC85B11"
@@ -92,7 +97,18 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--ws-port", type=int, default=8765)
     parser.add_argument("--serve-dir", default=".")
     parser.add_argument("--poll-ms", type=int, default=500)
-    parser.add_argument("--cc", choices=["cubic", "bbr"], default="cubic")
+    parser.add_argument(
+        "--collector", choices=["tcp_info", "ebpf"], default="tcp_info",
+        help="Kernel metric source. ebpf reads a pinned sockops map.",
+    )
+    parser.add_argument("--ebpf-map", default="/sys/fs/bpf/tcp_metrics")
+    parser.add_argument("--bpftool", default="bpftool")
+    parser.add_argument(
+        "--cc",
+        choices=["auto", "cubic", "bbr"],
+        default="auto",
+        help="Use the socket's TCP_CONGESTION value by default; explicit values are test overrides.",
+    )
     return parser.parse_args()
 
 
@@ -112,6 +128,8 @@ class ConnectionState:
     delivery_rate_bps: int = 0
     retransmission_rate: float = 0.0
     latest_snapshot: Optional[dict] = None
+    initialized: bool = False
+    sampled_at: Optional[float] = None
 
 
 @dataclass
@@ -124,8 +142,9 @@ class SessionState:
 
 
 class SignalRegistry:
-    def __init__(self, cc: str):
+    def __init__(self, cc: str, collector: str = "tcp_info"):
         self.cc = cc
+        self.collector = collector
         self.lock = threading.Lock()
         self.connections: Dict[str, ConnectionState] = {}
         self.sessions: Dict[str, SessionState] = {}
@@ -165,7 +184,7 @@ class SignalRegistry:
         with self.lock:
             return dict(self.connections), dict(self.sessions)
 
-    def update_connection_snapshot(self, conn_id: str, snapshot: dict, bytes_acked: int, total_retrans: int, segs_out: int, rtt_min_us: int, delivery_rate_bps: int, retransmission_rate: float) -> None:
+    def update_connection_snapshot(self, conn_id: str, snapshot: dict, bytes_acked: int, total_retrans: int, segs_out: int, rtt_min_us: int, delivery_rate_bps: int, retransmission_rate: float, sampled_at: float) -> None:
         with self.lock:
             state = self.connections.get(conn_id)
             if not state:
@@ -178,6 +197,8 @@ class SignalRegistry:
             state.delivery_rate_bps = delivery_rate_bps
             state.retransmission_rate = retransmission_rate
             state.last_seen_at = time.time()
+            state.initialized = True
+            state.sampled_at = sampled_at
 
 
 class TrackingHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
@@ -330,6 +351,19 @@ def read_tcp_info(sock: socket.socket) -> Optional[TcpInfo]:
     return TcpInfo.from_buffer_copy(raw)
 
 
+def read_congestion_control(sock: socket.socket, fallback: str = "unknown") -> str:
+    """Return the congestion-control algorithm used by this exact socket."""
+    tcp_congestion = getattr(socket, "TCP_CONGESTION", 13)
+    try:
+        raw = sock.getsockopt(socket.IPPROTO_TCP, tcp_congestion, 32)
+    except OSError:
+        return fallback
+    if isinstance(raw, int):
+        return fallback
+    value = raw.split(b"\x00", 1)[0].decode("ascii", errors="ignore").strip().lower()
+    return value or fallback
+
+
 def select_connection_for_session(connections: Dict[str, ConnectionState], session: SessionState) -> Optional[ConnectionState]:
     candidates = [conn for conn in connections.values() if conn.client_ip == session.client_ip]
     if not candidates:
@@ -337,24 +371,32 @@ def select_connection_for_session(connections: Dict[str, ConnectionState], sessi
     return max(candidates, key=lambda conn: conn.last_seen_at)
 
 
-def normalize_snapshot(state: ConnectionState, info: TcpInfo, cc: str, poll_interval_sec: float, session_id: str) -> tuple[dict, int, int, int, int, int, float]:
+def normalize_snapshot(
+    state: ConnectionState,
+    info: TcpInfo,
+    cc: str,
+    sample_interval_sec: float,
+    session_id: str,
+    sampled_at: Optional[float] = None,
+) -> tuple[dict, int, int, int, int, int, float, float]:
+    sampled_at = time.monotonic() if sampled_at is None else sampled_at
     rtt_us = int(info.tcpi_rtt)
     current_min = int(info.tcpi_min_rtt) if int(info.tcpi_min_rtt) > 0 else rtt_us
     if state.rtt_min_us is not None:
         current_min = min(current_min, state.rtt_min_us)
 
     total_retrans = int(info.tcpi_total_retrans)
-    retrans_delta = max(0, total_retrans - state.total_retrans_last)
+    retrans_delta = max(0, total_retrans - state.total_retrans_last) if state.initialized else 0
 
     bytes_acked = int(info.tcpi_bytes_acked)
-    acked_delta = max(0, bytes_acked - state.bytes_acked_last)
-    delivery_rate_bps = int((acked_delta * 8) / poll_interval_sec) if poll_interval_sec > 0 else 0
+    acked_delta = max(0, bytes_acked - state.bytes_acked_last) if state.initialized else 0
+    delivery_rate_bps = int((acked_delta * 8) / sample_interval_sec) if sample_interval_sec > 0 else 0
 
     if int(info.tcpi_delivery_rate) > 0:
         delivery_rate_bps = int(info.tcpi_delivery_rate) * 8
 
     segs_out = int(info.tcpi_segs_out)
-    segs_out_delta = max(0, segs_out - state.segs_out_last)
+    segs_out_delta = max(0, segs_out - state.segs_out_last) if state.initialized else 0
     retransmission_rate = 0.0
     if segs_out_delta > 0:
         retransmission_rate = min(1.0, retrans_delta / max(segs_out_delta, 1))
@@ -363,6 +405,7 @@ def normalize_snapshot(state: ConnectionState, info: TcpInfo, cc: str, poll_inte
         "type": "tcp_metrics",
         "version": 1,
         "session_id": session_id,
+        "connection_id": state.conn_id,
         "timestamp_ms": int(time.time() * 1000),
         "freshness_ms": 0,
         "transport": "tcp",
@@ -378,8 +421,10 @@ def normalize_snapshot(state: ConnectionState, info: TcpInfo, cc: str, poll_inte
         "packet_loss_rate": retransmission_rate,
         "rto_events_delta": int(info.tcpi_retransmits),
         "delivery_rate_bps": max(0, delivery_rate_bps),
+        "pacing_rate_bps": max(0, int(info.tcpi_pacing_rate) * 8),
+        "app_limited": bool(int(info.tcpi_delivery_rate_app_limited) & 0x1),
     }
-    return snapshot, bytes_acked, total_retrans, segs_out, current_min, delivery_rate_bps, retransmission_rate
+    return snapshot, bytes_acked, total_retrans, segs_out, current_min, delivery_rate_bps, retransmission_rate, sampled_at
 
 
 def collector_loop(registry: SignalRegistry, poll_ms: int) -> None:
@@ -397,12 +442,21 @@ def collector_loop(registry: SignalRegistry, poll_ms: int) -> None:
             if not info:
                 continue
 
-            snapshot, bytes_acked, total_retrans, segs_out, rtt_min_us, delivery_rate_bps, retransmission_rate = normalize_snapshot(
+            sampled_at = time.monotonic()
+            sample_interval_sec = (
+                max(0.001, sampled_at - conn.sampled_at)
+                if conn.sampled_at is not None
+                else poll_interval_sec
+            )
+            socket_cc = read_congestion_control(conn.sock, fallback="unknown")
+            effective_cc = socket_cc if registry.cc == "auto" else registry.cc
+            snapshot, bytes_acked, total_retrans, segs_out, rtt_min_us, delivery_rate_bps, retransmission_rate, sampled_at = normalize_snapshot(
                 state=conn,
                 info=info,
-                cc=registry.cc,
-                poll_interval_sec=poll_interval_sec,
+                cc=effective_cc,
+                sample_interval_sec=sample_interval_sec,
                 session_id=session.session_id,
+                sampled_at=sampled_at,
             )
             registry.update_connection_snapshot(
                 conn_id=conn.conn_id,
@@ -413,6 +467,7 @@ def collector_loop(registry: SignalRegistry, poll_ms: int) -> None:
                 rtt_min_us=rtt_min_us,
                 delivery_rate_bps=delivery_rate_bps,
                 retransmission_rate=retransmission_rate,
+                sampled_at=sampled_at,
             )
 
             try:
@@ -420,6 +475,49 @@ def collector_loop(registry: SignalRegistry, poll_ms: int) -> None:
             except OSError:
                 registry.unregister_session(session.session_id)
 
+        time.sleep(poll_interval_sec)
+
+
+def select_ebpf_entry_for_session(entries: list[dict], session: SessionState, http_port: int) -> Optional[dict]:
+    """Select the newest server-side DASH socket belonging to a WS client."""
+    candidates = [
+        entry for entry in entries
+        if entry["key"].get("remote_ip") == session.client_ip
+        and int(entry["key"].get("local_port", 0)) == http_port
+    ]
+    if not candidates:
+        return None
+    return max(candidates, key=lambda entry: int(entry["value"].get("timestamp_ns", 0)))
+
+
+def ebpf_collector_loop(
+    registry: SignalRegistry,
+    poll_ms: int,
+    map_path: str,
+    bpftool: str,
+    http_port: int,
+) -> None:
+    normalizer = SnapshotNormalizer()
+    poll_interval_sec = poll_ms / 1000.0
+    while True:
+        try:
+            entries = read_pinned_map(map_path, bpftool=bpftool)
+        except (OSError, ValueError, json.JSONDecodeError, subprocess.CalledProcessError) as error:
+            print(f"[ebpf] map read failed: {error}", flush=True)
+            time.sleep(poll_interval_sec)
+            continue
+
+        _, sessions = registry.snapshot_state()
+        for session in sessions.values():
+            entry = select_ebpf_entry_for_session(entries, session, http_port)
+            if not entry:
+                continue
+            effective_cc = registry.cc if registry.cc != "auto" else "unknown"
+            snapshot = normalizer.normalize(entry, session.session_id, effective_cc)
+            try:
+                send_ws_text(session.ws_conn, json.dumps(snapshot))
+            except OSError:
+                registry.unregister_session(session.session_id)
         time.sleep(poll_interval_sec)
 
 
@@ -446,7 +544,7 @@ def ws_session_loop(conn: socket.socket, addr: tuple[str, int], registry: Signal
                     "type": "hello_ack",
                     "session_id": session_id,
                     "cc": registry.cc,
-                    "collector": "tcp_info",
+                    "collector": registry.collector,
                 }
             ),
         )
@@ -483,11 +581,15 @@ def ws_server_loop(host: str, port: int, registry: SignalRegistry) -> None:
 def main() -> int:
     args = parse_args()
     serve_dir = str(Path(args.serve_dir).resolve())
-    registry = SignalRegistry(cc=args.cc)
+    if args.collector == "ebpf" and args.cc == "auto":
+        raise SystemExit("--collector ebpf requires --cc cubic or --cc bbr")
+    registry = SignalRegistry(cc=args.cc, collector=args.collector)
 
     collector_thread = threading.Thread(
-        target=collector_loop,
-        args=(registry, args.poll_ms),
+        target=collector_loop if args.collector == "tcp_info" else ebpf_collector_loop,
+        args=(registry, args.poll_ms) if args.collector == "tcp_info" else (
+            registry, args.poll_ms, args.ebpf_map, args.bpftool, args.http_port
+        ),
         daemon=True,
     )
     collector_thread.start()
@@ -502,7 +604,7 @@ def main() -> int:
     httpd = ThreadingHTTPServer((args.host, args.http_port), make_http_handler(serve_dir, registry))
     print(
         f"[http] serving {serve_dir} at http://{args.host}:{args.http_port} "
-        f"(cc={args.cc}, poll={args.poll_ms}ms)",
+        f"(collector={args.collector}, cc={args.cc}, poll={args.poll_ms}ms)",
         flush=True,
     )
     try:

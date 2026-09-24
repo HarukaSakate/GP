@@ -198,10 +198,11 @@ python3 scripts/tcp_info_signal_server.py \
   --ws-port 8765 \
   --serve-dir /home/l0gic/abr-pretest \
   --poll-ms 500 \
-  --cc cubic
+  --cc auto
 ```
 
-BBRを使用する場合は`--cc bbr`に変更する。ブラウザから次へアクセスする。
+既定の`--cc auto`では、対象HTTPソケットの`TCP_CONGESTION`から実際の方式を取得する。
+`--cc cubic`と`--cc bbr`は再現試験用の明示的な上書きとして使用する。
 
 ```text
 http://127.0.0.1:8000/web/player.html
@@ -261,11 +262,15 @@ TCP Signal Max Ageの既定値は1500 msである。これを超えた情報は`
 
 #### RTT / RTTx
 
-* CUBIC：`RTTx > 1.5`
-* BBR：`RTTx > 1.4`かつ`delivery_rate_bps < 現在の動画ビットレート × 1.15`
+共通条件として、最小RTTが1 ms以上、RTTの絶対増加が5 ms以上、かつ3サンプル連続で
+成立した場合だけ判定する。
+
+* CUBIC：上記に加えて`RTTx > 1.5`
+* BBR：上記に加えて`RTTx > 1.4`かつ`delivery_rate_bps < 現在の動画ビットレート × 1.15`
 
 BBRではRTTが周期的に変動する可能性があるため、RTT膨張だけでは品質を下げず、
 配送レートにも余裕がない場合に限ってRTT由来の輻輳と判断する。
+`app_limited`なサンプルは配送レート比較から除外する。
 
 #### Packet loss / RETX
 
@@ -297,8 +302,10 @@ CWNDが小さいだけでは、通信量が少ない正常状態と区別でき�
 3. 情報が1500 ms以内であることと、選択されたTCP信号の閾値を確認する。
 4. 輻輳と判定しても、バッファが8秒より多く、再生停止がまだない場合は
    `Watching`として品質を維持する。
-5. 前回のTCP Guardrail動作から1500 ms未満の場合は`Cooldown`として連続変更を防ぐ。
+5. 前回のTCP Guardrail動作から6000 ms未満の場合は`Cooldown`として連続変更を防ぐ。
 6. 上記の抑制条件がなく、最低品質でもない場合、現在品質を1段階下げる。
+
+同一の`connection_id`と`timestamp_ms`を持つTCPサンプルは、品質変更へ一度しか使用しない。
 
 ```text
 nextQuality = max(0, currentQuality - 1)
@@ -394,3 +401,91 @@ sudo sysctl -w net.ipv4.tcp_congestion_control=bbr
 
 
 ## 🧠 考察
+
+---
+
+## 開発時の自動テスト
+
+```bash
+python3 -m unittest discover -s tests -v
+```
+
+## Dockerでの基本動作確認
+
+Docker版はLinux上でTCP_INFO collector、WebSocket、静的プレイヤをまとめて確認するための
+再現環境である。eBPF版の検証では、別途BPF権限とホストカーネル機能が必要になる。
+
+```bash
+docker compose build
+docker compose up -d
+docker compose ps
+curl http://127.0.0.1:8000/web/player.html
+docker compose down
+```
+
+## eBPF collectorのビルドとsmoke test
+
+eBPFビルダーは実行環境の`arm64`または`x86_64`を自動判定する。smoke testは一時的に
+sockopsプログラムをコンテナ自身のcgroupへattachし、TCP通信中にmap更新とJSON変換を
+確認した後、programとmapを自動削除する。
+
+```bash
+docker build -f Dockerfile.ebpf -t gp-ebpf-builder .
+docker run --rm gp-ebpf-builder
+docker run --rm --privileged --cgroupns=host \
+  -v /sys/fs/bpf:/sys/fs/bpf \
+  gp-ebpf-builder sh /src/ebpf/smoke_test.sh
+```
+
+既にpinされたmapをJSON Linesとして確認する場合：
+
+```bash
+python3 scripts/ebpf_map_reader.py \
+  --map /sys/fs/bpf/tcp_metrics \
+  --cc cubic \
+  --interval-ms 500
+```
+
+### eBPF mapをWebSocket APIへ接続
+
+sockopsプログラムをattachしてmapをpinした後、同じHTTP/WebSocketサーバを
+eBPF collectorモードで起動する。eBPF map自体からCC名は取得しないため、実験条件を
+`--cc`で明示する。
+
+```bash
+python3 scripts/tcp_info_signal_server.py \
+  --collector ebpf \
+  --ebpf-map /sys/fs/bpf/tcp_metrics \
+  --cc cubic \
+  --serve-dir .
+```
+
+プレイヤのTCP Guardrailはdash.js 5.1.1の`qualitySwitchRules`として登録される。
+通常時は画面で選んだThroughputまたはBOLAが判断し、確認済みのTCP輻輳時だけ
+custom ruleが選択可能な最大Representationを1段下げる。
+
+## tc/netem反復実験
+
+標準プロファイルは`experiments/netem_profiles.json`にある。まず実行予定を確認する。
+
+```bash
+python3 scripts/run_netem_experiments.py \
+  --interface eth0 \
+  --command './your-playback-probe.sh' \
+  --repetitions 5 \
+  --dry-run
+```
+
+Docker内で実行する場合は、ホストの通信を変更せず専用コンテナの`eth0`だけを整形できる。
+
+```bash
+docker compose -f compose.experiment.yaml build
+docker compose -f compose.experiment.yaml run --rm tcp-metrics-experiment \
+  python scripts/run_netem_experiments.py \
+  --interface eth0 \
+  --command './your-playback-probe.sh' \
+  --repetitions 5
+```
+
+各試行は`results/netem/<profile>-rNN/`へ標準出力、標準エラー、条件、終了コード、
+所要時間を保存する。中断、失敗、正常終了のいずれでもnetem qdiscを解除する。

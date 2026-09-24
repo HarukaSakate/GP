@@ -1,0 +1,7 @@
+{
+  "profiles": [
+    {"name": "stable-8mbit", "rate": "8mbit", "delay": "20ms", "jitter": "2ms", "loss": "0%"},
+    {"name": "constrained-2mbit", "rate": "2mbit", "delay": "60ms", "jitter": "10ms", "loss": "0.5%"},
+    {"name": "high-rtt-loss", "rate": "4mbit", "delay": "120ms", "jitter": "20ms", "loss": "1%"}
+  ]
+}

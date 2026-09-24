@@ -329,6 +329,10 @@
     let lastSchedulerRecoveryAt = 0;
     let sessionId = "";
     let peakCwndPackets = 0;
+    let activeTcpConnectionId = null;
+    let consecutiveCongestedSamples = 0;
+    let lastEvaluatedTcpSampleKey = null;
+    let lastAppliedTcpSampleKey = null;
 
     function createEmptyBitrateInfo() {
       return {
@@ -572,6 +576,10 @@
       latestTcpMetrics = null;
       latestTcpReceivedAt = 0;
       peakCwndPackets = 0;
+      activeTcpConnectionId = null;
+      consecutiveCongestedSamples = 0;
+      lastEvaluatedTcpSampleKey = null;
+      lastAppliedTcpSampleKey = null;
       lastVideoFragmentStartedAt = 0;
       lastSchedulerRecoveryAt = 0;
       guardrailValue.textContent = "Inactive";
@@ -642,10 +650,25 @@
         }
 
         latestTcpMetrics = message;
-        latestTcpReceivedAt = now();
+        latestTcpReceivedAt = now() - Math.max(0, Number(message.freshness_ms ?? 0));
+        const connectionId = message.connection_id ?? null;
+        if (connectionId !== activeTcpConnectionId) {
+          activeTcpConnectionId = connectionId;
+          peakCwndPackets = 0;
+          consecutiveCongestedSamples = 0;
+          lastEvaluatedTcpSampleKey = null;
+          lastAppliedTcpSampleKey = null;
+        }
         const cwndPackets = Number(message.cwnd_packets ?? 0);
         if (Number.isFinite(cwndPackets) && cwndPackets > 0) {
           peakCwndPackets = Math.max(peakCwndPackets, cwndPackets);
+        }
+        const sampleKey = [connectionId, message.timestamp_ms].join(":");
+        if (sampleKey !== lastEvaluatedTcpSampleKey) {
+          consecutiveCongestedSamples = isCongested(message)
+            ? consecutiveCongestedSamples + 1
+            : 0;
+          lastEvaluatedTcpSampleKey = sampleKey;
         }
         updateMetricCards();
 
@@ -750,6 +773,9 @@
       const selected = getSelectedTcpSignals();
       const cc = String(tcpMetrics.cc ?? "").toLowerCase();
       const rttInflation = getRttInflation(tcpMetrics);
+      const rttUs = Number(tcpMetrics.rtt_us ?? 0);
+      const rttMinUs = Number(tcpMetrics.rtt_min_us ?? 0);
+      const rttIncreaseUs = rttUs - rttMinUs;
       const retransDelta = Number(tcpMetrics.retransmissions_delta ?? 0);
       const packetLossRate = getPacketLossRate(tcpMetrics);
       const deliveryRateBps = Number(tcpMetrics.delivery_rate_bps ?? 0);
@@ -761,10 +787,13 @@
       if (selected.rtt) {
         const bbrRatePressure =
           cc === "bbr" &&
+          !Boolean(tcpMetrics.app_limited) &&
           Number.isFinite(currentBitrateBps) &&
           deliveryRateBps > 0 &&
           deliveryRateBps < currentBitrateBps * 1.15;
         if (
+          rttMinUs >= 1000 &&
+          rttIncreaseUs >= 5000 &&
           rttInflation > (cc === "bbr" ? 1.4 : 1.5) &&
           (cc !== "bbr" || bbrRatePressure)
         ) {
@@ -792,7 +821,7 @@
       return evaluateTcpCongestion(tcpMetrics).congested;
     }
 
-    function maybeApplyTcpGuardrail(sourceEvent) {
+    function getTcpGuardrailDecision(sourceEvent) {
       if (!player || tcpAwareModeSelect.value === "off") return;
 
       const tcpMetrics = getFreshTcpMetrics();
@@ -805,13 +834,24 @@
       const bitrateList = getVideoRepresentationsSafe();
       const bufferLevel = getBufferLevel();
       const congested = isCongested(tcpMetrics);
-      const cooldownMs = 1500;
+      const cooldownMs = 6000;
+      const sampleKey = [tcpMetrics.connection_id ?? null, tcpMetrics.timestamp_ms].join(":");
 
       if (!Array.isArray(bitrateList) || bitrateList.length === 0) return;
       if (currentQuality === null || currentQuality === undefined) return;
 
       if (!congested) {
         guardrailValue.textContent = "Healthy";
+        return;
+      }
+
+      if (consecutiveCongestedSamples < 3) {
+        guardrailValue.textContent = "Confirming congestion";
+        return;
+      }
+
+      if (sampleKey === lastAppliedTcpSampleKey) {
+        guardrailValue.textContent = "Sample already used";
         return;
       }
 
@@ -831,28 +871,49 @@
         return;
       }
 
-      try {
-        player.setRepresentationForTypeByIndex("video", nextQuality);
-        lastGuardrailActionTs = now();
-        guardrailValue.textContent = "Downshift to Q" + nextQuality;
+      lastGuardrailActionTs = now();
+      lastAppliedTcpSampleKey = sampleKey;
+      guardrailValue.textContent = "Downshift to Q" + nextQuality;
 
-        addLog({
-          event: "TCP_GUARDRAIL_APPLIED",
-          sourceEvent,
-          currentQuality,
-          nextQuality,
-          bufferLevel,
-          tcpMetrics
-        });
-      } catch (error) {
-        addLog({
-          event: "TCP_GUARDRAIL_ERROR",
-          sourceEvent,
-          error: String(error)
-        });
-        guardrailValue.textContent = "Error";
-      }
+      addLog({
+        event: "TCP_GUARDRAIL_RULE_APPLIED",
+        sourceEvent,
+        currentQuality,
+        nextQuality,
+        bufferLevel,
+        tcpMetrics
+      });
+      return { nextQuality, reasons: evaluateTcpCongestion(tcpMetrics).reasons };
     }
+
+    function TcpGuardrailRule() {
+      const context = this.context;
+      const SwitchRequest = dashjs.FactoryMaker.getClassFactoryByName("SwitchRequest");
+
+      function getMaxIndex(rulesContext) {
+        const switchRequest = SwitchRequest(context).create();
+        if (!rulesContext || rulesContext.getMediaType() !== "video") {
+          return switchRequest;
+        }
+        const decision = getTcpGuardrailDecision("DASH_CUSTOM_ABR_RULE");
+        if (!decision) return switchRequest;
+        const representations = getVideoRepresentationsSafe();
+        const representation = representations.find(
+          (item) => item.absoluteIndex === decision.nextQuality || item.index === decision.nextQuality
+        ) ?? representations[decision.nextQuality];
+        if (!representation) return switchRequest;
+        switchRequest.representation = representation;
+        switchRequest.reason = {
+          name: "TcpGuardrailRule",
+          reasons: decision.reasons,
+          tcpMetrics: getFreshTcpMetrics()
+        };
+        return switchRequest;
+      }
+
+      return { getMaxIndex, reset: function () {} };
+    }
+    TcpGuardrailRule.__dashjs_factory_name = "TcpGuardrailRule";
 
     function resolveFragmentMediaType(event) {
       const explicitType = event.mediaType ?? event.request?.mediaType ?? null;
@@ -932,14 +993,18 @@
       const mpdUrl = mpdUrlInput.value.trim() || getDefaultMpdUrl();
       mpdUrlInput.value = mpdUrl;
       const abr = abrSelect.value;
+      const useBola = abr === "abrBola";
 
       player = dashjs.MediaPlayer().create();
+      player.addABRCustomRule("qualitySwitchRules", "TcpGuardrailRule", TcpGuardrailRule);
       player.updateSettings({
         streaming: {
           abr: {
-            ABRStrategy: abr,
-            useDefaultABRRules: true,
-            bandwidthSafetyFactor: 0.9
+            bandwidthSafetyFactor: 0.9,
+            rules: {
+              throughputRule: { active: !useBola },
+              bolaRule: { active: useBola }
+            }
           }
         }
       });
@@ -1047,7 +1112,6 @@
         });
 
         if (resolveFragmentMediaType(event) === "video") {
-          maybeApplyTcpGuardrail("FRAGMENT_LOADING_COMPLETED");
           updateMetricCards();
         }
       });
