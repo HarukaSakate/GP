@@ -29,6 +29,7 @@ import time
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Dict, Optional
+from urllib.parse import urlsplit
 
 from ebpf_map_reader import SnapshotNormalizer, read_pinned_map
 
@@ -130,6 +131,8 @@ class ConnectionState:
     latest_snapshot: Optional[dict] = None
     initialized: bool = False
     sampled_at: Optional[float] = None
+    media_request_path: Optional[str] = None
+    media_requested_at: Optional[float] = None
 
 
 @dataclass
@@ -162,6 +165,13 @@ class SignalRegistry:
                 last_seen_at=time.time(),
             )
         return conn_id
+
+    def mark_media_request(self, conn_id: str, path: str) -> None:
+        with self.lock:
+            state = self.connections.get(conn_id)
+            if state:
+                state.media_request_path = path
+                state.media_requested_at = time.time()
 
     def unregister_http_conn(self, conn_id: str) -> None:
         with self.lock:
@@ -228,6 +238,12 @@ class TrackingHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
             if self._conn_id:
                 self._registry.unregister_http_conn(self._conn_id)
                 self._conn_id = None
+
+    def do_GET(self) -> None:
+        path = urlsplit(self.path).path
+        if self._conn_id and path.lower().endswith((".mpd", ".m4s")) and Path(self.translate_path(path)).is_file():
+            self._registry.mark_media_request(self._conn_id, path)
+        super().do_GET()
 
     def end_headers(self) -> None:
         self.send_header("Cache-Control", "no-store")
@@ -365,10 +381,11 @@ def read_congestion_control(sock: socket.socket, fallback: str = "unknown") -> s
 
 
 def select_connection_for_session(connections: Dict[str, ConnectionState], session: SessionState) -> Optional[ConnectionState]:
-    candidates = [conn for conn in connections.values() if conn.client_ip == session.client_ip]
+    candidates = [conn for conn in connections.values()
+                  if conn.client_ip == session.client_ip and conn.media_requested_at is not None]
     if not candidates:
         return None
-    return max(candidates, key=lambda conn: conn.last_seen_at)
+    return max(candidates, key=lambda conn: conn.media_requested_at)
 
 
 def normalize_snapshot(
@@ -406,6 +423,8 @@ def normalize_snapshot(
         "version": 1,
         "session_id": session_id,
         "connection_id": state.conn_id,
+        "http_request_path": state.media_request_path,
+        "media_request_timestamp_ms": int(state.media_requested_at * 1000) if state.media_requested_at is not None else None,
         "timestamp_ms": int(time.time() * 1000),
         "freshness_ms": 0,
         "transport": "tcp",

@@ -99,6 +99,30 @@ class CongestionControlTests(unittest.TestCase):
         self.assertEqual(sock.last_call[0], socket.IPPROTO_TCP)
 
 
+class MediaSelectionTests(unittest.TestCase):
+    def test_non_media_http_socket_is_not_selected(self):
+        session = server.SessionState("s1", "127.0.0.1", FakeSocket(), 1.0)
+        self.assertIsNone(server.select_connection_for_session({"ui": make_state()}, session))
+
+    def test_sampling_does_not_pin_an_old_connection(self):
+        session = server.SessionState("s1", "127.0.0.1", FakeSocket(), 1.0)
+        old, new = make_state(), make_state()
+        old.last_seen_at, old.media_requested_at = 1000, 2
+        new.last_seen_at, new.media_requested_at = 3, 3
+        self.assertIs(server.select_connection_for_session({"old": old, "new": new}, session), new)
+
+    def test_wrong_client_media_is_not_selected(self):
+        session = server.SessionState("s1", "10.0.0.2", FakeSocket(), 1.0)
+        state = make_state(); state.media_requested_at = 2
+        self.assertIsNone(server.select_connection_for_session({"media": state}, session))
+
+    def test_metrics_identify_observed_media_request(self):
+        state = make_state(); state.media_request_path = "/dash/test2/chunk-stream0-00001.m4s"; state.media_requested_at = 2.5
+        snapshot, *_ = server.normalize_snapshot(state, make_info(), "cubic", .5, "s1")
+        self.assertEqual(snapshot["http_request_path"], state.media_request_path)
+        self.assertEqual(snapshot["media_request_timestamp_ms"], 2500)
+
+
 class EbpfSelectionTests(unittest.TestCase):
     def test_selects_newest_matching_http_socket(self):
         session = server.SessionState("s1", "10.0.0.2", FakeSocket(), 1.0)

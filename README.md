@@ -196,7 +196,7 @@ python3 scripts/tcp_info_signal_server.py \
   --host 0.0.0.0 \
   --http-port 8000 \
   --ws-port 8765 \
-  --serve-dir /home/l0gic/abr-pretest \
+  --serve-dir /home/l0gic/GP \
   --poll-ms 500 \
   --cc auto
 ```

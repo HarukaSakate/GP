@@ -72,7 +72,7 @@ def summarize(path):
     peak_cwnd = max((value for value in cwnds if value is not None), default=None)
     losses = [number(item.get("packet_loss_rate", item.get("retransmission_rate"))) for item in metrics]
     retrans = [number(item.get("retransmissions_delta")) for item in metrics]
-    guardrails = sum(record.get("event") == "TCP_GUARDRAIL_APPLIED" for record in records)
+    guardrails = sum(record.get("event") in {"TCP_GUARDRAIL_APPLIED", "TCP_GUARDRAIL_RULE_APPLIED"} for record in records)
 
     stall_ms, startup_ms = number(end.get("totalStallMs")), number(end.get("startupDelayMs"))
     playback_sec = number(end.get("playbackTime"))

@@ -45,11 +45,11 @@ def recv_text(sock):
 def main():
     http = socket.create_connection(("127.0.0.1", 8000), timeout=3)
     http.sendall(
-        b"GET /web/player.html HTTP/1.1\r\nHost: localhost\r\nConnection: keep-alive\r\n\r\n"
+        b"GET /dash/test2/stream.mpd HTTP/1.1\r\nHost: localhost\r\nConnection: keep-alive\r\n\r\n"
     )
     response = recv_until(http, b"\r\n\r\n")
     if b"200 OK" not in response:
-        raise RuntimeError("HTTP player request failed")
+        raise RuntimeError("HTTP DASH manifest request failed")
 
     ws = socket.create_connection(("127.0.0.1", 8765), timeout=3)
     key = base64.b64encode(os.urandom(16)).decode()
@@ -70,6 +70,7 @@ def main():
     assert ack["type"] == "hello_ack"
     assert metrics["type"] == "tcp_metrics"
     assert metrics["session_id"] == "integration-probe"
+    assert metrics["http_request_path"] == "/dash/test2/stream.mpd"
     assert metrics["connection_id"]
     assert metrics["cc"] not in ("", "auto", "unknown")
     assert metrics["rtt_us"] > 0

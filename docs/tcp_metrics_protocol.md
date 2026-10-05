@@ -152,7 +152,7 @@ python3 scripts/tcp_info_signal_server.py \
   --host 0.0.0.0 \
   --http-port 8000 \
   --ws-port 8765 \
-  --serve-dir /home/l0gic/abr-pretest \
+  --serve-dir /home/l0gic/GP \
   --poll-ms 500 \
   --cc auto
 ```
@@ -182,3 +182,20 @@ The server matches a WebSocket session to the newest eBPF entry whose remote IP
 equals the browser client and whose local port equals `--http-port`. This is safe
 for the current single-client experiment design; a production deployment still
 needs an explicit request/session identifier.
+
+## TCP_INFO media-socket evidence
+
+The TCP_INFO collector selects the matching client's most recent existing DASH
+`.mpd`/`.m4s` GET socket. Polling updates do not affect request ordering. Other
+HTTP sockets (player HTML, JavaScript, favicon) are not eligible until they also
+serve DASH media. This remains a single-client-per-server mapping.
+
+Optional evidence fields:
+
+- `http_request_path`: DASH request URL path observed on this exact socket.
+- `media_request_timestamp_ms`: Unix epoch milliseconds of that media request.
+
+`freshness_ms` describes collector sample age. RTT/delivery estimates may remain
+unchanged during application idle periods; a freshly read socket snapshot is not
+a claim of freshly acknowledged media bytes. eBPF currently does not supply
+HTTP-path evidence; the reviewed experiment runner targets TCP_INFO.

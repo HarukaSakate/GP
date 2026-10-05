@@ -16,13 +16,18 @@ esac
 
 case "$ACTION" in
     apply)
-        [ "$#" -eq 6 ] || usage
+        [ "$#" -eq 6 ] || [ "$#" -eq 7 ] || usage
         RATE=$3
         DELAY=$4
         JITTER=$5
         LOSS=$6
-        tc qdisc replace dev "$IFACE" root netem \
-            rate "$RATE" delay "$DELAY" "$JITTER" loss "$LOSS"
+        if [ "$#" -eq 7 ]; then
+            tc qdisc replace dev "$IFACE" root netem \
+                rate "$RATE" delay "$DELAY" "$JITTER" loss "$LOSS" seed "$7"
+        else
+            tc qdisc replace dev "$IFACE" root netem \
+                rate "$RATE" delay "$DELAY" "$JITTER" loss "$LOSS"
+        fi
         tc -s qdisc show dev "$IFACE"
         ;;
     clear)
