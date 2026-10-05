@@ -1,0 +1,197 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="2142">
+<rect width="100%" height="100%" fill="white"/>
+<text x="10" y="20" font-size="14">Condition</text>
+<text x="610" y="20" font-size="14">Time-weighted rendered bitrate (Mbps), mean and 95% CI; n=5</text>
+<text x="10" y="46" font-size="10">cc-bbr_abr-bola_signals-cwnd-loss_netem-constrained-2mbit</text>
+<line x1="928.2" y1="42" x2="943.2" y2="42" stroke="#357a55" stroke-width="2"/><circle cx="935.7" cy="42" r="3" fill="#165c35"/>
+<text x="10" y="68" font-size="10">cc-bbr_abr-bola_signals-cwnd-loss_netem-high-rtt-loss</text>
+<line x1="956.6" y1="64" x2="974.4" y2="64" stroke="#357a55" stroke-width="2"/><circle cx="965.5" cy="64" r="3" fill="#165c35"/>
+<text x="10" y="90" font-size="10">cc-bbr_abr-bola_signals-cwnd-loss_netem-stable-8mbit</text>
+<line x1="975.5" y1="86" x2="975.5" y2="86" stroke="#357a55" stroke-width="2"/><circle cx="975.5" cy="86" r="3" fill="#165c35"/>
+<text x="10" y="112" font-size="10">cc-bbr_abr-bola_signals-cwnd_netem-constrained-2mbit</text>
+<line x1="931.9" y1="108" x2="954.3" y2="108" stroke="#357a55" stroke-width="2"/><circle cx="943.1" cy="108" r="3" fill="#165c35"/>
+<text x="10" y="134" font-size="10">cc-bbr_abr-bola_signals-cwnd_netem-high-rtt-loss</text>
+<line x1="968.0" y1="130" x2="975.8" y2="130" stroke="#357a55" stroke-width="2"/><circle cx="971.9" cy="130" r="3" fill="#165c35"/>
+<text x="10" y="156" font-size="10">cc-bbr_abr-bola_signals-cwnd_netem-stable-8mbit</text>
+<line x1="975.5" y1="152" x2="975.5" y2="152" stroke="#357a55" stroke-width="2"/><circle cx="975.5" cy="152" r="3" fill="#165c35"/>
+<text x="10" y="178" font-size="10">cc-bbr_abr-bola_signals-loss_netem-constrained-2mbit</text>
+<line x1="933.4" y1="174" x2="942.2" y2="174" stroke="#357a55" stroke-width="2"/><circle cx="937.8" cy="174" r="3" fill="#165c35"/>
+<text x="10" y="200" font-size="10">cc-bbr_abr-bola_signals-loss_netem-high-rtt-loss</text>
+<line x1="941.3" y1="196" x2="974.4" y2="196" stroke="#357a55" stroke-width="2"/><circle cx="957.9" cy="196" r="3" fill="#165c35"/>
+<text x="10" y="222" font-size="10">cc-bbr_abr-bola_signals-loss_netem-stable-8mbit</text>
+<line x1="975.5" y1="218" x2="975.5" y2="218" stroke="#357a55" stroke-width="2"/><circle cx="975.5" cy="218" r="3" fill="#165c35"/>
+<text x="10" y="244" font-size="10">cc-bbr_abr-bola_signals-none_netem-constrained-2mbit</text>
+<line x1="933.7" y1="240" x2="946.5" y2="240" stroke="#357a55" stroke-width="2"/><circle cx="940.1" cy="240" r="3" fill="#165c35"/>
+<text x="10" y="266" font-size="10">cc-bbr_abr-bola_signals-none_netem-high-rtt-loss</text>
+<line x1="969.5" y1="262" x2="975.0" y2="262" stroke="#357a55" stroke-width="2"/><circle cx="972.3" cy="262" r="3" fill="#165c35"/>
+<text x="10" y="288" font-size="10">cc-bbr_abr-bola_signals-none_netem-stable-8mbit</text>
+<line x1="975.5" y1="284" x2="975.5" y2="284" stroke="#357a55" stroke-width="2"/><circle cx="975.5" cy="284" r="3" fill="#165c35"/>
+<text x="10" y="310" font-size="10">cc-bbr_abr-bola_signals-rtt-cwnd-loss_netem-constrained-2mbit</text>
+<line x1="930.1" y1="306" x2="952.2" y2="306" stroke="#357a55" stroke-width="2"/><circle cx="941.1" cy="306" r="3" fill="#165c35"/>
+<text x="10" y="332" font-size="10">cc-bbr_abr-bola_signals-rtt-cwnd-loss_netem-high-rtt-loss</text>
+<line x1="960.4" y1="328" x2="977.0" y2="328" stroke="#357a55" stroke-width="2"/><circle cx="968.7" cy="328" r="3" fill="#165c35"/>
+<text x="10" y="354" font-size="10">cc-bbr_abr-bola_signals-rtt-cwnd-loss_netem-stable-8mbit</text>
+<line x1="975.5" y1="350" x2="975.5" y2="350" stroke="#357a55" stroke-width="2"/><circle cx="975.5" cy="350" r="3" fill="#165c35"/>
+<text x="10" y="376" font-size="10">cc-bbr_abr-bola_signals-rtt-cwnd_netem-constrained-2mbit</text>
+<line x1="927.1" y1="372" x2="941.5" y2="372" stroke="#357a55" stroke-width="2"/><circle cx="934.3" cy="372" r="3" fill="#165c35"/>
+<text x="10" y="398" font-size="10">cc-bbr_abr-bola_signals-rtt-cwnd_netem-high-rtt-loss</text>
+<line x1="970.7" y1="394" x2="974.0" y2="394" stroke="#357a55" stroke-width="2"/><circle cx="972.4" cy="394" r="3" fill="#165c35"/>
+<text x="10" y="420" font-size="10">cc-bbr_abr-bola_signals-rtt-cwnd_netem-stable-8mbit</text>
+<line x1="975.5" y1="416" x2="975.5" y2="416" stroke="#357a55" stroke-width="2"/><circle cx="975.5" cy="416" r="3" fill="#165c35"/>
+<text x="10" y="442" font-size="10">cc-bbr_abr-bola_signals-rtt-loss_netem-constrained-2mbit</text>
+<line x1="925.1" y1="438" x2="954.8" y2="438" stroke="#357a55" stroke-width="2"/><circle cx="939.9" cy="438" r="3" fill="#165c35"/>
+<text x="10" y="464" font-size="10">cc-bbr_abr-bola_signals-rtt-loss_netem-high-rtt-loss</text>
+<line x1="964.9" y1="460" x2="977.5" y2="460" stroke="#357a55" stroke-width="2"/><circle cx="971.2" cy="460" r="3" fill="#165c35"/>
+<text x="10" y="486" font-size="10">cc-bbr_abr-bola_signals-rtt-loss_netem-stable-8mbit</text>
+<line x1="975.5" y1="482" x2="975.5" y2="482" stroke="#357a55" stroke-width="2"/><circle cx="975.5" cy="482" r="3" fill="#165c35"/>
+<text x="10" y="508" font-size="10">cc-bbr_abr-bola_signals-rtt_netem-constrained-2mbit</text>
+<line x1="931.4" y1="504" x2="939.9" y2="504" stroke="#357a55" stroke-width="2"/><circle cx="935.7" cy="504" r="3" fill="#165c35"/>
+<text x="10" y="530" font-size="10">cc-bbr_abr-bola_signals-rtt_netem-high-rtt-loss</text>
+<line x1="967.2" y1="526" x2="976.0" y2="526" stroke="#357a55" stroke-width="2"/><circle cx="971.6" cy="526" r="3" fill="#165c35"/>
+<text x="10" y="552" font-size="10">cc-bbr_abr-bola_signals-rtt_netem-stable-8mbit</text>
+<line x1="975.5" y1="548" x2="975.5" y2="548" stroke="#357a55" stroke-width="2"/><circle cx="975.5" cy="548" r="3" fill="#165c35"/>
+<text x="10" y="574" font-size="10">cc-bbr_abr-throughput_signals-cwnd-loss_netem-constrained-2mbit</text>
+<line x1="923.8" y1="570" x2="954.3" y2="570" stroke="#357a55" stroke-width="2"/><circle cx="939.1" cy="570" r="3" fill="#165c35"/>
+<text x="10" y="596" font-size="10">cc-bbr_abr-throughput_signals-cwnd-loss_netem-high-rtt-loss</text>
+<line x1="964.3" y1="592" x2="977.1" y2="592" stroke="#357a55" stroke-width="2"/><circle cx="970.7" cy="592" r="3" fill="#165c35"/>
+<text x="10" y="618" font-size="10">cc-bbr_abr-throughput_signals-cwnd-loss_netem-stable-8mbit</text>
+<line x1="975.5" y1="614" x2="975.5" y2="614" stroke="#357a55" stroke-width="2"/><circle cx="975.5" cy="614" r="3" fill="#165c35"/>
+<text x="10" y="640" font-size="10">cc-bbr_abr-throughput_signals-cwnd_netem-constrained-2mbit</text>
+<line x1="919.5" y1="636" x2="949.1" y2="636" stroke="#357a55" stroke-width="2"/><circle cx="934.3" cy="636" r="3" fill="#165c35"/>
+<text x="10" y="662" font-size="10">cc-bbr_abr-throughput_signals-cwnd_netem-high-rtt-loss</text>
+<line x1="973.4" y1="658" x2="974.6" y2="658" stroke="#357a55" stroke-width="2"/><circle cx="974.0" cy="658" r="3" fill="#165c35"/>
+<text x="10" y="684" font-size="10">cc-bbr_abr-throughput_signals-cwnd_netem-stable-8mbit</text>
+<line x1="975.5" y1="680" x2="975.5" y2="680" stroke="#357a55" stroke-width="2"/><circle cx="975.5" cy="680" r="3" fill="#165c35"/>
+<text x="10" y="706" font-size="10">cc-bbr_abr-throughput_signals-loss_netem-constrained-2mbit</text>
+<line x1="914.3" y1="702" x2="944.4" y2="702" stroke="#357a55" stroke-width="2"/><circle cx="929.3" cy="702" r="3" fill="#165c35"/>
+<text x="10" y="728" font-size="10">cc-bbr_abr-throughput_signals-loss_netem-high-rtt-loss</text>
+<line x1="955.7" y1="724" x2="975.4" y2="724" stroke="#357a55" stroke-width="2"/><circle cx="965.5" cy="724" r="3" fill="#165c35"/>
+<text x="10" y="750" font-size="10">cc-bbr_abr-throughput_signals-loss_netem-stable-8mbit</text>
+<line x1="975.5" y1="746" x2="975.5" y2="746" stroke="#357a55" stroke-width="2"/><circle cx="975.5" cy="746" r="3" fill="#165c35"/>
+<text x="10" y="772" font-size="10">cc-bbr_abr-throughput_signals-none_netem-constrained-2mbit</text>
+<line x1="928.1" y1="768" x2="946.0" y2="768" stroke="#357a55" stroke-width="2"/><circle cx="937.1" cy="768" r="3" fill="#165c35"/>
+<text x="10" y="794" font-size="10">cc-bbr_abr-throughput_signals-none_netem-high-rtt-loss</text>
+<line x1="973.8" y1="790" x2="974.9" y2="790" stroke="#357a55" stroke-width="2"/><circle cx="974.3" cy="790" r="3" fill="#165c35"/>
+<text x="10" y="816" font-size="10">cc-bbr_abr-throughput_signals-none_netem-stable-8mbit</text>
+<line x1="975.5" y1="812" x2="975.5" y2="812" stroke="#357a55" stroke-width="2"/><circle cx="975.5" cy="812" r="3" fill="#165c35"/>
+<text x="10" y="838" font-size="10">cc-bbr_abr-throughput_signals-rtt-cwnd-loss_netem-constrained-2mbit</text>
+<line x1="926.9" y1="834" x2="961.8" y2="834" stroke="#357a55" stroke-width="2"/><circle cx="944.4" cy="834" r="3" fill="#165c35"/>
+<text x="10" y="860" font-size="10">cc-bbr_abr-throughput_signals-rtt-cwnd-loss_netem-high-rtt-loss</text>
+<line x1="963.0" y1="856" x2="979.4" y2="856" stroke="#357a55" stroke-width="2"/><circle cx="971.2" cy="856" r="3" fill="#165c35"/>
+<text x="10" y="882" font-size="10">cc-bbr_abr-throughput_signals-rtt-cwnd-loss_netem-stable-8mbit</text>
+<line x1="975.5" y1="878" x2="975.5" y2="878" stroke="#357a55" stroke-width="2"/><circle cx="975.5" cy="878" r="3" fill="#165c35"/>
+<text x="10" y="904" font-size="10">cc-bbr_abr-throughput_signals-rtt-cwnd_netem-constrained-2mbit</text>
+<line x1="848.4" y1="900" x2="986.6" y2="900" stroke="#357a55" stroke-width="2"/><circle cx="917.5" cy="900" r="3" fill="#165c35"/>
+<text x="10" y="926" font-size="10">cc-bbr_abr-throughput_signals-rtt-cwnd_netem-high-rtt-loss</text>
+<line x1="972.7" y1="922" x2="974.9" y2="922" stroke="#357a55" stroke-width="2"/><circle cx="973.8" cy="922" r="3" fill="#165c35"/>
+<text x="10" y="948" font-size="10">cc-bbr_abr-throughput_signals-rtt-cwnd_netem-stable-8mbit</text>
+<line x1="975.5" y1="944" x2="975.5" y2="944" stroke="#357a55" stroke-width="2"/><circle cx="975.5" cy="944" r="3" fill="#165c35"/>
+<text x="10" y="970" font-size="10">cc-bbr_abr-throughput_signals-rtt-loss_netem-constrained-2mbit</text>
+<line x1="843.7" y1="966" x2="987.4" y2="966" stroke="#357a55" stroke-width="2"/><circle cx="915.6" cy="966" r="3" fill="#165c35"/>
+<text x="10" y="992" font-size="10">cc-bbr_abr-throughput_signals-rtt-loss_netem-high-rtt-loss</text>
+<line x1="939.5" y1="988" x2="986.9" y2="988" stroke="#357a55" stroke-width="2"/><circle cx="963.2" cy="988" r="3" fill="#165c35"/>
+<text x="10" y="1014" font-size="10">cc-bbr_abr-throughput_signals-rtt-loss_netem-stable-8mbit</text>
+<line x1="975.5" y1="1010" x2="975.5" y2="1010" stroke="#357a55" stroke-width="2"/><circle cx="975.5" cy="1010" r="3" fill="#165c35"/>
+<text x="10" y="1036" font-size="10">cc-bbr_abr-throughput_signals-rtt_netem-constrained-2mbit</text>
+<line x1="927.6" y1="1032" x2="941.7" y2="1032" stroke="#357a55" stroke-width="2"/><circle cx="934.6" cy="1032" r="3" fill="#165c35"/>
+<text x="10" y="1058" font-size="10">cc-bbr_abr-throughput_signals-rtt_netem-high-rtt-loss</text>
+<line x1="973.7" y1="1054" x2="974.3" y2="1054" stroke="#357a55" stroke-width="2"/><circle cx="974.0" cy="1054" r="3" fill="#165c35"/>
+<text x="10" y="1080" font-size="10">cc-bbr_abr-throughput_signals-rtt_netem-stable-8mbit</text>
+<line x1="975.5" y1="1076" x2="975.5" y2="1076" stroke="#357a55" stroke-width="2"/><circle cx="975.5" cy="1076" r="3" fill="#165c35"/>
+<text x="10" y="1102" font-size="10">cc-cubic_abr-bola_signals-cwnd-loss_netem-constrained-2mbit</text>
+<line x1="678.5" y1="1098" x2="939.6" y2="1098" stroke="#357a55" stroke-width="2"/><circle cx="809.0" cy="1098" r="3" fill="#165c35"/>
+<text x="10" y="1124" font-size="10">cc-cubic_abr-bola_signals-cwnd-loss_netem-high-rtt-loss</text>
+<line x1="655.6" y1="1120" x2="660.4" y2="1120" stroke="#357a55" stroke-width="2"/><circle cx="658.0" cy="1120" r="3" fill="#165c35"/>
+<text x="10" y="1146" font-size="10">cc-cubic_abr-bola_signals-cwnd-loss_netem-stable-8mbit</text>
+<line x1="975.5" y1="1142" x2="975.5" y2="1142" stroke="#357a55" stroke-width="2"/><circle cx="975.5" cy="1142" r="3" fill="#165c35"/>
+<text x="10" y="1168" font-size="10">cc-cubic_abr-bola_signals-cwnd_netem-constrained-2mbit</text>
+<line x1="756.1" y1="1164" x2="1013.7" y2="1164" stroke="#357a55" stroke-width="2"/><circle cx="884.9" cy="1164" r="3" fill="#165c35"/>
+<text x="10" y="1190" font-size="10">cc-cubic_abr-bola_signals-cwnd_netem-high-rtt-loss</text>
+<line x1="654.0" y1="1186" x2="667.8" y2="1186" stroke="#357a55" stroke-width="2"/><circle cx="660.9" cy="1186" r="3" fill="#165c35"/>
+<text x="10" y="1212" font-size="10">cc-cubic_abr-bola_signals-cwnd_netem-stable-8mbit</text>
+<line x1="975.5" y1="1208" x2="975.5" y2="1208" stroke="#357a55" stroke-width="2"/><circle cx="975.5" cy="1208" r="3" fill="#165c35"/>
+<text x="10" y="1234" font-size="10">cc-cubic_abr-bola_signals-loss_netem-constrained-2mbit</text>
+<line x1="885.8" y1="1230" x2="950.7" y2="1230" stroke="#357a55" stroke-width="2"/><circle cx="918.3" cy="1230" r="3" fill="#165c35"/>
+<text x="10" y="1256" font-size="10">cc-cubic_abr-bola_signals-loss_netem-high-rtt-loss</text>
+<line x1="652.2" y1="1252" x2="668.0" y2="1252" stroke="#357a55" stroke-width="2"/><circle cx="660.1" cy="1252" r="3" fill="#165c35"/>
+<text x="10" y="1278" font-size="10">cc-cubic_abr-bola_signals-loss_netem-stable-8mbit</text>
+<line x1="975.5" y1="1274" x2="975.5" y2="1274" stroke="#357a55" stroke-width="2"/><circle cx="975.5" cy="1274" r="3" fill="#165c35"/>
+<text x="10" y="1300" font-size="10">cc-cubic_abr-bola_signals-none_netem-constrained-2mbit</text>
+<line x1="924.8" y1="1296" x2="941.1" y2="1296" stroke="#357a55" stroke-width="2"/><circle cx="933.0" cy="1296" r="3" fill="#165c35"/>
+<text x="10" y="1322" font-size="10">cc-cubic_abr-bola_signals-none_netem-high-rtt-loss</text>
+<line x1="653.8" y1="1318" x2="661.1" y2="1318" stroke="#357a55" stroke-width="2"/><circle cx="657.4" cy="1318" r="3" fill="#165c35"/>
+<text x="10" y="1344" font-size="10">cc-cubic_abr-bola_signals-none_netem-stable-8mbit</text>
+<line x1="975.5" y1="1340" x2="975.5" y2="1340" stroke="#357a55" stroke-width="2"/><circle cx="975.5" cy="1340" r="3" fill="#165c35"/>
+<text x="10" y="1366" font-size="10">cc-cubic_abr-bola_signals-rtt-cwnd-loss_netem-constrained-2mbit</text>
+<line x1="672.6" y1="1362" x2="681.2" y2="1362" stroke="#357a55" stroke-width="2"/><circle cx="676.9" cy="1362" r="3" fill="#165c35"/>
+<text x="10" y="1388" font-size="10">cc-cubic_abr-bola_signals-rtt-cwnd-loss_netem-high-rtt-loss</text>
+<line x1="655.5" y1="1384" x2="658.3" y2="1384" stroke="#357a55" stroke-width="2"/><circle cx="656.9" cy="1384" r="3" fill="#165c35"/>
+<text x="10" y="1410" font-size="10">cc-cubic_abr-bola_signals-rtt-cwnd-loss_netem-stable-8mbit</text>
+<line x1="975.5" y1="1406" x2="975.5" y2="1406" stroke="#357a55" stroke-width="2"/><circle cx="975.5" cy="1406" r="3" fill="#165c35"/>
+<text x="10" y="1432" font-size="10">cc-cubic_abr-bola_signals-rtt-cwnd_netem-constrained-2mbit</text>
+<line x1="680.8" y1="1428" x2="692.3" y2="1428" stroke="#357a55" stroke-width="2"/><circle cx="686.5" cy="1428" r="3" fill="#165c35"/>
+<text x="10" y="1454" font-size="10">cc-cubic_abr-bola_signals-rtt-cwnd_netem-high-rtt-loss</text>
+<line x1="655.1" y1="1450" x2="659.9" y2="1450" stroke="#357a55" stroke-width="2"/><circle cx="657.5" cy="1450" r="3" fill="#165c35"/>
+<text x="10" y="1476" font-size="10">cc-cubic_abr-bola_signals-rtt-cwnd_netem-stable-8mbit</text>
+<line x1="975.5" y1="1472" x2="975.5" y2="1472" stroke="#357a55" stroke-width="2"/><circle cx="975.5" cy="1472" r="3" fill="#165c35"/>
+<text x="10" y="1498" font-size="10">cc-cubic_abr-bola_signals-rtt-loss_netem-constrained-2mbit</text>
+<line x1="677.0" y1="1494" x2="686.8" y2="1494" stroke="#357a55" stroke-width="2"/><circle cx="681.9" cy="1494" r="3" fill="#165c35"/>
+<text x="10" y="1520" font-size="10">cc-cubic_abr-bola_signals-rtt-loss_netem-high-rtt-loss</text>
+<line x1="650.9" y1="1516" x2="668.9" y2="1516" stroke="#357a55" stroke-width="2"/><circle cx="659.9" cy="1516" r="3" fill="#165c35"/>
+<text x="10" y="1542" font-size="10">cc-cubic_abr-bola_signals-rtt-loss_netem-stable-8mbit</text>
+<line x1="975.5" y1="1538" x2="975.5" y2="1538" stroke="#357a55" stroke-width="2"/><circle cx="975.5" cy="1538" r="3" fill="#165c35"/>
+<text x="10" y="1564" font-size="10">cc-cubic_abr-bola_signals-rtt_netem-constrained-2mbit</text>
+<line x1="674.2" y1="1560" x2="688.2" y2="1560" stroke="#357a55" stroke-width="2"/><circle cx="681.2" cy="1560" r="3" fill="#165c35"/>
+<text x="10" y="1586" font-size="10">cc-cubic_abr-bola_signals-rtt_netem-high-rtt-loss</text>
+<line x1="650.6" y1="1582" x2="671.5" y2="1582" stroke="#357a55" stroke-width="2"/><circle cx="661.0" cy="1582" r="3" fill="#165c35"/>
+<text x="10" y="1608" font-size="10">cc-cubic_abr-bola_signals-rtt_netem-stable-8mbit</text>
+<line x1="975.5" y1="1604" x2="975.5" y2="1604" stroke="#357a55" stroke-width="2"/><circle cx="975.5" cy="1604" r="3" fill="#165c35"/>
+<text x="10" y="1630" font-size="10">cc-cubic_abr-throughput_signals-cwnd-loss_netem-constrained-2mbit</text>
+<line x1="738.1" y1="1626" x2="948.6" y2="1626" stroke="#357a55" stroke-width="2"/><circle cx="843.4" cy="1626" r="3" fill="#165c35"/>
+<text x="10" y="1652" font-size="10">cc-cubic_abr-throughput_signals-cwnd-loss_netem-high-rtt-loss</text>
+<line x1="655.3" y1="1648" x2="660.8" y2="1648" stroke="#357a55" stroke-width="2"/><circle cx="658.1" cy="1648" r="3" fill="#165c35"/>
+<text x="10" y="1674" font-size="10">cc-cubic_abr-throughput_signals-cwnd-loss_netem-stable-8mbit</text>
+<line x1="975.5" y1="1670" x2="975.5" y2="1670" stroke="#357a55" stroke-width="2"/><circle cx="975.5" cy="1670" r="3" fill="#165c35"/>
+<text x="10" y="1696" font-size="10">cc-cubic_abr-throughput_signals-cwnd_netem-constrained-2mbit</text>
+<line x1="615.7" y1="1692" x2="883.6" y2="1692" stroke="#357a55" stroke-width="2"/><circle cx="749.7" cy="1692" r="3" fill="#165c35"/>
+<text x="10" y="1718" font-size="10">cc-cubic_abr-throughput_signals-cwnd_netem-high-rtt-loss</text>
+<line x1="655.9" y1="1714" x2="657.7" y2="1714" stroke="#357a55" stroke-width="2"/><circle cx="656.8" cy="1714" r="3" fill="#165c35"/>
+<text x="10" y="1740" font-size="10">cc-cubic_abr-throughput_signals-cwnd_netem-stable-8mbit</text>
+<line x1="975.5" y1="1736" x2="975.5" y2="1736" stroke="#357a55" stroke-width="2"/><circle cx="975.5" cy="1736" r="3" fill="#165c35"/>
+<text x="10" y="1762" font-size="10">cc-cubic_abr-throughput_signals-loss_netem-constrained-2mbit</text>
+<line x1="788.6" y1="1758" x2="964.4" y2="1758" stroke="#357a55" stroke-width="2"/><circle cx="876.5" cy="1758" r="3" fill="#165c35"/>
+<text x="10" y="1784" font-size="10">cc-cubic_abr-throughput_signals-loss_netem-high-rtt-loss</text>
+<line x1="655.1" y1="1780" x2="661.6" y2="1780" stroke="#357a55" stroke-width="2"/><circle cx="658.4" cy="1780" r="3" fill="#165c35"/>
+<text x="10" y="1806" font-size="10">cc-cubic_abr-throughput_signals-loss_netem-stable-8mbit</text>
+<line x1="975.5" y1="1802" x2="975.5" y2="1802" stroke="#357a55" stroke-width="2"/><circle cx="975.5" cy="1802" r="3" fill="#165c35"/>
+<text x="10" y="1828" font-size="10">cc-cubic_abr-throughput_signals-none_netem-constrained-2mbit</text>
+<line x1="924.9" y1="1824" x2="951.6" y2="1824" stroke="#357a55" stroke-width="2"/><circle cx="938.3" cy="1824" r="3" fill="#165c35"/>
+<text x="10" y="1850" font-size="10">cc-cubic_abr-throughput_signals-none_netem-high-rtt-loss</text>
+<line x1="655.2" y1="1846" x2="661.4" y2="1846" stroke="#357a55" stroke-width="2"/><circle cx="658.3" cy="1846" r="3" fill="#165c35"/>
+<text x="10" y="1872" font-size="10">cc-cubic_abr-throughput_signals-none_netem-stable-8mbit</text>
+<line x1="975.5" y1="1868" x2="975.5" y2="1868" stroke="#357a55" stroke-width="2"/><circle cx="975.5" cy="1868" r="3" fill="#165c35"/>
+<text x="10" y="1894" font-size="10">cc-cubic_abr-throughput_signals-rtt-cwnd-loss_netem-constrained-2mbit</text>
+<line x1="673.2" y1="1890" x2="689.4" y2="1890" stroke="#357a55" stroke-width="2"/><circle cx="681.3" cy="1890" r="3" fill="#165c35"/>
+<text x="10" y="1916" font-size="10">cc-cubic_abr-throughput_signals-rtt-cwnd-loss_netem-high-rtt-loss</text>
+<line x1="655.2" y1="1912" x2="661.2" y2="1912" stroke="#357a55" stroke-width="2"/><circle cx="658.2" cy="1912" r="3" fill="#165c35"/>
+<text x="10" y="1938" font-size="10">cc-cubic_abr-throughput_signals-rtt-cwnd-loss_netem-stable-8mbit</text>
+<line x1="975.5" y1="1934" x2="975.5" y2="1934" stroke="#357a55" stroke-width="2"/><circle cx="975.5" cy="1934" r="3" fill="#165c35"/>
+<text x="10" y="1960" font-size="10">cc-cubic_abr-throughput_signals-rtt-cwnd_netem-constrained-2mbit</text>
+<line x1="669.8" y1="1956" x2="685.7" y2="1956" stroke="#357a55" stroke-width="2"/><circle cx="677.8" cy="1956" r="3" fill="#165c35"/>
+<text x="10" y="1982" font-size="10">cc-cubic_abr-throughput_signals-rtt-cwnd_netem-high-rtt-loss</text>
+<line x1="654.0" y1="1978" x2="662.2" y2="1978" stroke="#357a55" stroke-width="2"/><circle cx="658.1" cy="1978" r="3" fill="#165c35"/>
+<text x="10" y="2004" font-size="10">cc-cubic_abr-throughput_signals-rtt-cwnd_netem-stable-8mbit</text>
+<line x1="975.5" y1="2000" x2="975.5" y2="2000" stroke="#357a55" stroke-width="2"/><circle cx="975.5" cy="2000" r="3" fill="#165c35"/>
+<text x="10" y="2026" font-size="10">cc-cubic_abr-throughput_signals-rtt-loss_netem-constrained-2mbit</text>
+<line x1="676.2" y1="2022" x2="683.3" y2="2022" stroke="#357a55" stroke-width="2"/><circle cx="679.7" cy="2022" r="3" fill="#165c35"/>
+<text x="10" y="2048" font-size="10">cc-cubic_abr-throughput_signals-rtt-loss_netem-high-rtt-loss</text>
+<line x1="654.4" y1="2044" x2="662.8" y2="2044" stroke="#357a55" stroke-width="2"/><circle cx="658.6" cy="2044" r="3" fill="#165c35"/>
+<text x="10" y="2070" font-size="10">cc-cubic_abr-throughput_signals-rtt-loss_netem-stable-8mbit</text>
+<line x1="975.5" y1="2066" x2="975.5" y2="2066" stroke="#357a55" stroke-width="2"/><circle cx="975.5" cy="2066" r="3" fill="#165c35"/>
+<text x="10" y="2092" font-size="10">cc-cubic_abr-throughput_signals-rtt_netem-constrained-2mbit</text>
+<line x1="678.8" y1="2088" x2="689.1" y2="2088" stroke="#357a55" stroke-width="2"/><circle cx="684.0" cy="2088" r="3" fill="#165c35"/>
+<text x="10" y="2114" font-size="10">cc-cubic_abr-throughput_signals-rtt_netem-high-rtt-loss</text>
+<line x1="655.5" y1="2110" x2="661.1" y2="2110" stroke="#357a55" stroke-width="2"/><circle cx="658.3" cy="2110" r="3" fill="#165c35"/>
+<text x="10" y="2136" font-size="10">cc-cubic_abr-throughput_signals-rtt_netem-stable-8mbit</text>
+<line x1="975.5" y1="2132" x2="975.5" y2="2132" stroke="#357a55" stroke-width="2"/><circle cx="975.5" cy="2132" r="3" fill="#165c35"/>
+</svg>
