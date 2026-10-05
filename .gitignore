@@ -11,3 +11,7 @@ encoded_fixed/bbb_1080.mp4
 encoded_fixed/bbb_480.mp4
 encoded_fixed/bbb_720.mp4
 .aider*
+
+# Keep raw local experiment workspaces out of Git; commit the curated compressed evidence bundle.
+results/*
+!results/experiment-data/
